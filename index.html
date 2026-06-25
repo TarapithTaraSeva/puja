@@ -37,6 +37,29 @@
                 padding-bottom: env(safe-area-inset-bottom);
             }
         }
+		
+		/* Policy Modal Styling */
+
+		#policyContent h3{
+			font-size:18px;
+			font-weight:700;
+			margin-top:20px;
+			margin-bottom:10px;
+			}
+
+		#policyContent p{
+			margin-bottom:12px;
+		}
+
+		.policy-link{
+			color:#92400e;
+			cursor:pointer;
+		}
+
+		.policy-link:hover{
+			text-decoration:underline;
+		}
+		
     </style>
 </head>
 <body class="bg-gradient-to-b from-amber-50 to-white min-h-screen text-slate-800">
@@ -149,9 +172,31 @@
 
         <div id="messageArea" class="mb-4"></div>
 
-        <footer class="text-center text-xs text-slate-500 mt-4">
-            <span data-lang-key="footerText">© 2025 তাঁরা সেৱা - তারাপীঠ, তাঁরা সেৱা       -     Call / Wapp- 7001531377</span>
-        </footer>
+        <footer class="text-center text-xs text-slate-500 mt-8 border-t pt-5">
+			<div class="mb-3">
+				<span data-lang-key="footerText">
+					© 2025 Tara Seva - Tarapith, West Bengal, India
+				</span>
+			</div>
+
+			<div class="flex flex-wrap justify-center gap-4 text-sm">
+				<a href="#" onclick="openPolicy('terms')" class="text-amber-700 hover:underline">
+					Terms & Conditions
+				</a>
+
+				<a href="#" onclick="openPolicy('privacy')" class="text-amber-700 hover:underline">
+					Privacy Policy
+				</a>
+
+				<a href="#" onclick="openPolicy('refund')" class="text-amber-700 hover:underline">
+					Refund & Cancellation Policy
+				</a>
+
+				<a href="#" onclick="openPolicy('shipping')" class="text-amber-700 hover:underline">
+					Shipping & Delivery Policy
+				</a>
+			</div>
+		</footer>
 
     </div>
 
@@ -709,6 +754,129 @@
                 await postToGoogleSheet(payload);
             }
         });
-    </script>
+    
+	const policyData = {
+
+		terms: `
+			<h3>Terms & Conditions</h3>
+
+			<p>Welcome to Tara Seva.</p>
+
+			<p>Tara Seva provides online booking services for religious rituals, pujas, offerings, and related spiritual services conducted at Tarapith, West Bengal, India.</p>
+
+			<p>By using this website and making payment, you agree to these Terms & Conditions.</p>
+
+			<p>You are responsible for providing correct personal information, gotra details, contact number and delivery address.</p>
+
+			<p>Tara Seva reserves the right to refuse or cancel bookings due to incorrect information, fraud, technical issues or circumstances beyond reasonable control.</p>
+
+			<p>Puja schedules may vary due to temple requirements, festivals, weather conditions or religious considerations.</p>
+
+			<p>Any disputes shall be subject to the jurisdiction of West Bengal, India.</p>
+			`,
+
+		privacy: `
+			<h3>Privacy Policy</h3>
+
+			<p>Tara Seva respects your privacy.</p>
+
+			<p>We collect your name, address, phone number, WhatsApp number and puja booking information solely for providing religious services and delivering prasad.</p>
+
+			<p>Your information is never sold or rented to third parties.</p>
+
+			<p>Information may be shared only with payment processors, courier partners or authorities when legally required.</p>
+
+			<p>Payments are securely processed through Razorpay. We do not store card or banking information.</p>
+
+			<p>For privacy-related concerns contact us at +91 7001531377.</p>
+			`,
+
+		refund: `
+			<h3>Refund & Cancellation Policy</h3>
+
+			<p>Tara Seva provides customized religious services performed specifically on behalf of devotees.</p>
+
+			<p>Once a puja, ritual, sankalp or offering has been completed, cancellation or refund is not applicable.</p>
+
+			<p>Prasad and Ashirbad items are devotional and perishable in nature. Therefore cancellation is not possible after processing or dispatch.</p>
+
+			<p>Refunds are not available due to change of mind or personal reasons.</p>
+
+			<p>However, if payment is deducted multiple times, or payment succeeds but booking is not received because of a technical issue, the amount will be refunded after verification.</p>
+
+			<p>Approved refunds will be credited to the original payment method within 5-7 working days.</p>
+			`,
+
+		shipping: `
+			<h3>Shipping & Delivery Policy</h3>
+
+			<p>Tara Seva delivers Prasad and Ashirbad boxes across India.</p>
+
+			<p>After completion of the puja, packages are normally dispatched within 2-3 business days.</p>
+
+			<p>Delivery is carried out through courier partners.</p>
+
+			<p>Most deliveries are completed within 5-7 working days after dispatch depending on destination and courier service availability.</p>
+
+			<p>Delivery delays may occur during festivals, public holidays, weather disruptions or unforeseen circumstances.</p>
+
+			<p>Please provide a complete and accurate shipping address and contact number.</p>
+			`
+	};
+
+		function openPolicy(type){
+
+		document.getElementById("policyTitle").innerText={
+		terms:"Terms & Conditions",
+		privacy:"Privacy Policy",
+		refund:"Refund & Cancellation Policy",
+		shipping:"Shipping & Delivery Policy"
+		}[type];
+
+		document.getElementById("policyContent").innerHTML=
+		policyData[type];
+
+		document.getElementById("policyModal")
+		.classList.remove("hidden");
+		}
+
+		function closePolicy(){
+		document.getElementById("policyModal")
+		.classList.add("hidden");
+		}
+
+		document.addEventListener("click",function(e){
+
+		if(e.target.id==="policyModal"){
+		closePolicy();
+		}
+
+		});
+	
+	</script>
+
+	<!-- POLICY MODAL -->
+
+	<div id="policyModal"
+			class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center p-4">
+
+		<div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+
+			<div class="flex justify-between items-center p-5 border-b">
+				<h2 id="policyTitle" class="text-xl font-bold text-slate-800"></h2>
+
+				<button onclick="closePolicy()"
+						class="text-slate-500 hover:text-red-500 text-2xl">
+					&times;
+				</button>
+			</div>
+
+			<div id="policyContent"
+				class="p-6 overflow-y-auto max-h-[75vh] text-sm text-slate-700 leading-7">
+			</div>
+
+		</div>
+	</div>
+
 </body>
 </html>
