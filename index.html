@@ -100,11 +100,10 @@
                         <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm font-semibold select-none">+91</span>
                         <input type="tel" id="contactField" class="w-full border rounded-r-md p-3 input-focus" data-lang-placeholder-key="phonePlaceholder" placeholder="১০ অঙ্কের ফোন নম্বর দিন" required pattern="[6-9][0-9]{9}" maxlength="10">
                     </div>
-                    <p id="contactError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="contactNumberError">দয়া করে একটি সঠিক ১০-সংখ্যার ফোন নম্বর দিন।</p>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="emailField" data-lang-key="emailLabel" data-is-mandatory="false">ইমেইল আইডি</label>
-                    <input type="email" id="emailField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="emailPlaceholder" placeholder="আপনার পুরো ইমেইল আইডি  লিখুন">   </div>
+                    <input type="email" id="emailField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="emailPlaceholder" placeholder="আপনার ইমেইল আইডি (ঐচ্ছিক)">   </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="villTownField" data-lang-key="villTownLabel" data-is-mandatory="true">গ্রাম/শহর</label>
                     <input type="text" id="villTownField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="villTownPlaceholder" placeholder="গ্রাম/শহর" required>   </div>
@@ -164,7 +163,7 @@
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="pinCodeField" data-lang-key="pinCodeLabel" data-is-mandatory="true">পিন কোড</label>
                     <input type="text" id="pinCodeField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="pinCodePlaceholder" placeholder="ছয় অঙ্কের পিন কোড" required pattern="[0-9]{6}" maxlength="6">
-                    <p id="pinError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="pinCodeError">দয়া করে একটি সঠিক ৬-সংখ্যার পিন কোড দিন।</p>     </div>
+                </div>
             </div>
             <div class="mt-3">
                 <label class="block text-sm font-medium text-slate-700 mb-1" for="whatsappField" data-lang-key="whatsappLabel" data-is-mandatory="true">আপনার হোয়াটসঅ্যাপ নম্বর লিখুন</label>
@@ -172,7 +171,6 @@
                     <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm font-semibold select-none">+91</span>
                     <input type="tel" id="whatsappField" class="w-full border rounded-r-md p-3 input-focus" data-lang-placeholder-key="whatsappPlaceholder" placeholder="১০ অঙ্কের হোয়াটসঅ্যাপ নম্বর দিন" required pattern="[6-9][0-9]{9}" maxlength="10">
                 </div>
-                <p id="whatsappError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="whatsappError">দয়া করে একটি সঠিক ১০-সংখ্যার হোয়াটসঅ্যাপ নম্বর দিন।</p>
             </div>      </section>
         <div id="paymentArea" class="hidden">
             <div class="bg-white rounded-2xl shadow p-5 mb-4">
@@ -209,6 +207,23 @@
             <div id="policyContent" class="p-6 overflow-y-auto max-h-[75vh] text-sm text-slate-700 leading-7">
             </div>   </div>  </div>
 
+    <!-- NEW CUSTOM ALERTS AND CONFIRMATION POPUP BOX -->
+    <div id="customAlertModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full shadow-2xl overflow-hidden transform transition-all scale-100">
+            <div id="customAlertHeader" class="bg-amber-600 p-4 flex items-center gap-2">
+                <span class="text-white text-xl font-bold">⚠️</span>
+                <h3 id="customAlertTitle" class="text-lg font-bold text-white">মনোযোগ দিন</h3>
+            </div>
+            <div class="p-6">
+                <p id="customAlertText" class="text-slate-700 text-sm leading-6 font-medium"></p>
+            </div>
+            <div id="customAlertFooter" class="p-4 bg-slate-50 border-t flex justify-end gap-3">
+                <button id="customAlertCancelBtn" class="hidden px-4 py-2 border rounded-md text-sm text-slate-600 hover:bg-slate-100 font-medium transition-colors">বাতিল করুন</button>
+                <button id="customAlertOkBtn" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-md text-sm font-medium transition-colors">ঠিক আছে</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const translations = {
             bn: {
@@ -242,7 +257,7 @@
                 whatsappLabel: "আপনার হোয়াটসঅ্যাপ নম্বর লিখুন",
                 namePlaceholder: "নাম",
                 phonePlaceholder: "১০ অঙ্কের ফোন নম্বর দিন",
-                emailPlaceholder: "আপনার পুরো ইমেইল আইডি লিখুন",
+                emailPlaceholder: "আপনার ইমেইল আইডি (ঐচ্ছিক)",
                 villTownPlaceholder: "গ্রাম/শহর",
                 roadLanePlaceholder: "রাস্তা/লেন (ঐচ্ছিক)",
                 landmarkPlaceholder: "কাছাকাছি বিখ্যাত স্থান/ল্যান্ডমার্ক",
@@ -255,7 +270,7 @@
                 contactNumberError: "দয়া করে একটি সঠিক ১০-সংখ্যার ফোন নম্বর দিন।",
                 paymentIntro: "সমস্ত ফাঁকা জায়গা গুলি পূরণ করার পরে নিচে পেমেন্ট করে পুজো পাঠান।",
                 payButton: "পেমেন্ট করুন ও পুজো পাঠানোর প্রক্রিয়া সম্পূর্ণ করুন",
-                confirmMsg: (pujaTitle, amount) => `আপনি পুজোর জন্য'${pujaTitle}' (₹${amount}) পেমেন্ট করতে যাচ্ছেন। চালিয়ে যেতে চান?`,
+                confirmMsg: (pujaTitle, amount) => `আপনি পুজোর জন্য '${pujaTitle}' (₹${amount}) পেমেন্ট করতে যাচ্ছেন। চালিয়ে যেতে চান?`,
                 successMsg: "আপনার পূজো সফলভাবে পাঠানো হয়েছে। খুব শিগগিরই আমরা আপনার সাথে যোগাযোগ করবো এবং পূজো সম্পন্ন হওয়ার পর আপনার প্রসাদ ও আশীর্বাদ বক্স আপনার দেওয়া ঠিকানায় কুরিয়ার করা হবে।",
                 paymentFailedMsg: "পেমেন্ট বাতিল বা ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
                 paymentPopupLoading: "Razorpay পেমেন্ট পপ-আপ লোড হচ্ছে... অনুগ্রহ করে পপ-আপটি বন্ধ করবেন না।",
@@ -269,8 +284,12 @@
                 validationLandmark: "দয়া করে ল্যান্ডমার্ক দিন।",
                 validationDistrict: "দয়া করে জেলার নাম দিন।",
                 validationState: "দয়া করে রাজ্য নির্বাচন করুন।",
-                validationPinCode: "দয়া করে পিন কোড দিন।",
+                validationPinCode: "দয়া করে পিন কোড দিন。",
                 footerText: "© 2025 তাঁরা সেৱা - তারাপীঠ, তাঁরা সেৱা       -      Call / Wapp- 7001531377",
+                alertTitle: "সতর্কবার্তা",
+                confirmTitle: "নিশ্চিত করুন",
+                okBtnText: "ঠিক আছে",
+                cancelBtnText: "বাতিল করুন",
                 pujaDetailsContent: {
                     puja1: {
                         title: "স্পেশাল অঞ্জলী ও যজ্ঞাহুতি পূজা",
@@ -279,14 +298,14 @@
                     puja2: {
                         title: "স্পেশাল সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
                         inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূজায় আপনাদের নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। যা আপনার এবং আপনার পরিবারের সুখ ও সমৃদ্ধির জন্য নিবেদন করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল, সিঁদুর, আলতা, সুগন্ধী তেল</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম এবং অন্যান্য সামগ্রী</li></ul>`,
-                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>পুষ্প আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি/পেঁড়া (শুকনো) এবং অন্যান্য সামগ্রী</li></ol>`    },
+                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি</li><li>শুকنو প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>পুষ্প আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি/পেঁড়া (শুকনো) এবং অন্যান্য সামগ্রী</li></ol>`    },
                     puja3: {
                         title: "স্পেশাল শীতল ভোগ নিবেদন সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
                         inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূর্ণ লগ্নে মা তারাকে শীতল ভোগ নিবেদন করা হবে। আপনার নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল ও ১০৮ জবা ফুলের মালা, সিঁদুর, আলতা, সুগন্ধী তেল, অস্বগন্ধা</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম</li><li>৭) শীতল ভোগের পরাত নিবেদন এবং অন্যান্য সামগ্রী</li></ul>`,
                         courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি (বড়)</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক ও অস্বাগন্ধা</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`    },
                     puja4: {
                         title: "স্পেশাল মধ্যাহ্ন ভোগ নিবেদন সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
-                        inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূর্ণ লগ্নে মধ্যাহ্ন ভোগ নিবেদন করা হবে। আপনার নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল ও ১০৮ জবা ও অপরাজিতা ফুলের মালা, সিঁদুর, আলতা, সুগন্ধী তেল, অস্বগন্ধা</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম</li><li>৭) মধ্যান্য ভোগের পড়াত নিবেদন এবং অন্যান্য সামগ্রী</li></ul>`,
+                        inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূর্ণ লগ্নে মধ্যাহ্ন ভোগ নিবেদন করা হবে। আপনার নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে。 একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল ও ১০৮ জবা ও অপরাজিতা ফুলের মালা, সিঁদুর, আলতা, সুগন্ধী তেল, অস্বগন্ধা</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম</li><li>৭) মধ্যান্য ভোগের পড়াত নিবেদন এবং অন্যান্য সামগ্রী</li></ul>`,
                         courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি (বড়)</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক ও অস্বাগন্ধা</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`   }    }
             },
             hi: {
@@ -302,14 +321,14 @@
                 puja4Option: "स्पेशल मध्याह्न भोग निवेदन शृंगार — ₹ 2101/-",
                 pujaPriceText: "मूल्य:",
                 membersSectionTitle: "अपने नाम और गोत्र लिखें",
-                membersSectionSubtitle: "आप 5 लोगों तक के नामและ गोत्र लिख सकते हैं (कम से कम एक व्यक्ति का नाम और गोत्र लिखें)",
+                membersSectionSubtitle: "आप 5 लोगों तक के नाम और गोत्र लिख सकते हैं (कम से कम एक व्यक्ति का नाम और गोत्र लिखें)",
                 nameInputPlaceholder: "पूरा नाम लिखें",
                 gotraInputPlaceholder: "गोत्र लिखें (यदि नहीं है तो खाली छोड़ें)",
                 addMoreBtnText: "और नाम जोड़ें",
                 addressSectionTitle: "अपना घर का पता लिखें",
                 addressSectionSubtitle: "प्रसाद और आशीर्वाद बॉक्स कूरियर करने के लिए पूरा पता आवश्यक है।",
                 fullNameLabel: "आपका पूरा नाम",
-                contactLabel: "संपर्क फ़ोन नंबर",
+                contactLabel: "संपक फ़ोन नंबर",
                 emailLabel: "ईमेल आईडी",
                 villTownLabel: "गाँव/शहर",
                 roadLaneLabel: "सड़क/गली",
@@ -320,10 +339,10 @@
                 whatsappLabel: "अपना व्हाट्सएप नंबर लिखें",
                 namePlaceholder: "नाम",
                 phonePlaceholder: "10 अंकों का फ़ोन नंबर दर्ज करें",
-                emailPlaceholder: "आपकी पूरा ईमेल आईडी लिखें",
+                emailPlaceholder: "आपकी ईमेल आईडी (वैकल्पिक)",
                 villTownPlaceholder: "गाँव/शहर",
                 roadLanePlaceholder: "सड़क/गली (वैकल्पिक)",
-                landmarkPlaceholder: "निकटवर्ती प्रसिद्ध स्थान/लैंडマーク",
+                landmarkPlaceholder: "निकटवर्ती प्रसिद्ध स्थान/लैंडमार्क",
                 districtPlaceholder: "अपने जिले का नाम लिखें",
                 selectStatePlaceholder: "-- राज्य चुनें --",
                 pinCodePlaceholder: "छह अंकों का पिन कोड",
@@ -333,7 +352,7 @@
                 contactNumberError: "कृपया सही 10-अंकीय फ़ोन नंबर डालें।",
                 paymentIntro: "सभी खाली जगहें भरने के बाद, नीचे भुगतान करके पूजा भेजें।",
                 payButton: "भुगतान करें और पूजा भेजने की प्रक्रिया पूरी करें",
-                confirmMsg: (pujaTitle, amount) => `आप  पूजा के लिए '${pujaTitle}' (₹${amount}) का भुगतान करने जा रहे हैं। जारी रखना चाहते हैं?`,
+                confirmMsg: (pujaTitle, amount) => `आप पूजा के लिए '${pujaTitle}' (₹${amount}) का भुगतान करने जा रहे हैं। जारी रखना चाहते हैं?`,
                 successMsg: "आपकी  पूजा सफलतापूर्वक भेजी गई है। हम जल्द ही आपसे संपर्क करेंगे और पूजा पूरी होने के बाद आपका प्रसाद और आशीर्वाद बॉक्स आपके दिए गए पते पर कूरियर किया जाएगा।",
                 paymentFailedMsg: "भुगतान रद्द या असफल हो गया। कृपया पुनः प्रयास करें।",
                 paymentPopupLoading: "रेजरपे पेमेंट पॉप-अप लोड हो रहा है... कृपया पॉप-अप को बंद न करें।",
@@ -348,12 +367,15 @@
                 validationDistrict: "कृपया जिले का नाम दें।",
                 validationState: "कृपया राज्य चुनें।",
                 validationPinCode: "कृपया पिन कोड दें।",
-                footerText: "© 2025 तारा सेवा - तारापीठ, तारा सेवा        -      Call / Wapp- 7001531377  ",
+                alertTitle: "चेतावनी",
+                confirmTitle: "पुष्टि करें",
+                okBtnText: "ठीक है",
+                cancelBtnText: "रद्द करें",
                 pujaDetailsContent: {
                     puja1: {
                         title: "स्पेशल अंजलि और यज्ञाहुति पूजा",
                         inclusions: `<p>माँ तारा की विशेष पूजा। इस पूजा में आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। जो आपके और आपकी परिवार की सुख और समृद्धि के लिए अर्पित होगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल, सिंदूर, अलता, सुगंधित तेल</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण और अन्य सामग्री</li></ul>`,
-                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>य境 तिलक और सिंदूर तिलक</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई/पेड़ा (सूखा) और अन्य सामग्री</li></ol>`    },
+                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई/पेड़ा (सूखा) और अन्य सामग्री</li></ol>`    },
                     puja2: {
                         title: "स्पेशल शृंगार अंजलि और यज्ञाहुति पूजा",
                         inclusions: `<p> माँ तारा की विशेष पूजा। इस पूजा में आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। जो आपके और आपके परिवार की सुख और समृद्धि के लिए अर्पित होगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल, सिंदूर, अलता, सुगंधित तेल</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण और अन्य सामग्री</li></ul>`,
@@ -398,7 +420,7 @@
                 whatsappLabel: "Enter Your WhatsApp Number",
                 namePlaceholder: "Name",
                 phonePlaceholder: "Enter 10-digit mobile number",
-                emailPlaceholder: "Enter Your Full Email ID",
+                emailPlaceholder: "Your Email ID (Optional)",
                 villTownPlaceholder: "Village/City",
                 roadLanePlaceholder: "Road/Lane (Optional)",
                 landmarkPlaceholder: "Nearby famous place/Landmark",
@@ -427,6 +449,10 @@
                 validationState: "Please select a state.",
                 validationPinCode: "Please provide a pin code.",
                 footerText: "© 2025 Tara Seva - Tarapith, Tara Seva     -      Call / Wapp- 7001531377 ",
+                alertTitle: "Attention",
+                confirmTitle: "Confirm",
+                okBtnText: "OK",
+                cancelBtnText: "Cancel",
                 pujaDetailsContent: {
                     puja1: {
                         title: "Special Anjali & Yagyahuti Puja",
@@ -467,7 +493,6 @@
         const addressSection = document.getElementById('addressSection');
         const nameField = document.getElementById('nameField');
         const contactField = document.getElementById('contactField');
-        const contactError = document.getElementById('contactError');
         const emailField = document.getElementById('emailField');
         const villTownField = document.getElementById('villTownField');
         const roadLaneField = document.getElementById('roadLaneField');
@@ -476,11 +501,60 @@
         const stateSelect = document.getElementById('stateSelect');
         const pinCodeField = document.getElementById('pinCodeField');
         const whatsappField = document.getElementById('whatsappField');
-        const whatsappError = document.getElementById('whatsappError');
-        const pinError = document.getElementById('pinError');
         const paymentArea = document.getElementById('paymentArea');
         const payBtn = document.getElementById('payBtn');
         const messageArea = document.getElementById('messageArea');
+
+        // Custom Popup Elements
+        const customAlertModal = document.getElementById('customAlertModal');
+        const customAlertHeader = document.getElementById('customAlertHeader');
+        const customAlertTitle = document.getElementById('customAlertTitle');
+        const customAlertText = document.getElementById('customAlertText');
+        const customAlertCancelBtn = document.getElementById('customAlertCancelBtn');
+        const customAlertOkBtn = document.getElementById('customAlertOkBtn');
+
+        let customPopupCallback = null;
+
+        // Custom Modal Alert Function
+        function showCustomAlert(message) {
+            const currentLang = langSelect.value;
+            customAlertTitle.textContent = translations[currentLang].alertTitle || "সতর্কবার্তা";
+            customAlertText.textContent = message;
+            customAlertHeader.className = "bg-red-600 p-4 flex items-center gap-2"; // Warning Red Header
+            customAlertOkBtn.textContent = translations[currentLang].okBtnText || "ঠিক আছে";
+            customAlertOkBtn.className = "px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md text-sm font-medium transition-colors";
+            customAlertCancelBtn.classList.add('hidden');
+            customAlertModal.classList.remove('hidden');
+            customPopupCallback = null;
+        }
+
+        // Custom Modal Confirm Function
+        function showCustomConfirm(message, callback) {
+            const currentLang = langSelect.value;
+            customAlertTitle.textContent = translations[currentLang].confirmTitle || "নিশ্চিত করুন";
+            customAlertText.textContent = message;
+            customAlertHeader.className = "bg-amber-600 p-4 flex items-center gap-2"; // Premium Amber Header
+            customAlertOkBtn.textContent = translations[currentLang].okBtnText || "ঠিক আছে";
+            customAlertOkBtn.className = "px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-md text-sm font-medium transition-colors";
+            customAlertCancelBtn.textContent = translations[currentLang].cancelBtnText || "বাতিল করুন";
+            customAlertCancelBtn.classList.remove('hidden');
+            customAlertModal.classList.remove('hidden');
+            customPopupCallback = callback;
+        }
+
+        customAlertOkBtn.addEventListener('click', () => {
+            customAlertModal.classList.add('hidden');
+            if (customPopupCallback) {
+                customPopupCallback(true);
+            }
+        });
+
+        customAlertCancelBtn.addEventListener('click', () => {
+            customAlertModal.classList.add('hidden');
+            if (customPopupCallback) {
+                customPopupCallback(false);
+            }
+        });
 
         function updateContent(lang) {
             document.documentElement.lang = lang;
@@ -502,7 +576,6 @@
                 } else if (translations[lang][langKey]) {
                     option.textContent = translations[lang][langKey];    }    });
             
-            // Translate state dropdown placeholder
             const firstStateOption = stateSelect.options[0];
             if (firstStateOption) {
                 firstStateOption.textContent = translations[lang].selectStatePlaceholder;
@@ -581,7 +654,6 @@
             }
         });
 
-        // Strict number-only restriction and prevents leading spaces
         [contactField, whatsappField].forEach(field => {
             field.addEventListener('input', (e) => {
                 e.target.value = e.target.value.replace(/[^0-9]/g, '');
@@ -688,10 +760,10 @@
                     showMessage(translations[currentLang].successMsg, "success");
                     const payload = { status: "success", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: response.razorpay_payment_id || "", razorpay_signature: response.razorpay_signature || "", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
                     const ok = await postToGoogleSheet(payload);
-                    if (!ok) showMessage(translations[currentLang].googleSheetError, "error");       },
+                    if (!ok) showCustomAlert(translations[currentLang].googleSheetError);       },
                 modal: {
                     ondismiss: async function () {
-                        showMessage(translations[currentLang].paymentFailedMsg, "error");
+                        showCustomAlert(translations[currentLang].paymentFailedMsg);
                         const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: "user_dismissed_or_failed", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
                         await postToGoogleSheet(payload);        }       }       };
             const rzp = new Razorpay(options);
@@ -701,86 +773,81 @@
             const currentLang = langSelect.value;
             clearMessage();
             const formData = collectFormData();
-            if (!formData.pujaKey) { showMessage(translations[currentLang].validationPujaSelect, "error"); return; }
-            if (!formData.members || formData.members.length === 0) { showMessage(translations[currentLang].validationMinMembers, "error"); return; }
-            if (!formData.name) { showMessage(translations[currentLang].validationFullName, "error"); return; }
+            
+            // Replaced alert() with showCustomAlert()
+            if (!formData.pujaKey) { showCustomAlert(translations[currentLang].validationPujaSelect); return; }
+            if (!formData.members || formData.members.length === 0) { showCustomAlert(translations[currentLang].validationMinMembers); return; }
+            if (!formData.name) { showCustomAlert(translations[currentLang].validationFullName); return; }
             
             // Validate Phone Number
             if (!formData.contact) { 
-                showMessage(translations[currentLang].validationContact, "error"); 
+                showCustomAlert(translations[currentLang].validationContact); 
                 return; 
             }
             if (!isValidIndianMobile(formData.contact)) {
-                showMessage(translations[currentLang].contactNumberError, "error");
-                contactError.textContent = translations[currentLang].contactNumberError;
-                contactError.classList.remove('hidden');
+                showCustomAlert(translations[currentLang].contactNumberError);
                 return;
-            } else {
-                contactError.classList.add('hidden');
             }
 
-            if (!formData.villTown) { showMessage(translations[currentLang].validationVillTown, "error"); return; }
-            if (!formData.landmark) { showMessage(translations[currentLang].validationLandmark, "error"); return; }
-            if (!formData.district) { showMessage(translations[currentLang].validationDistrict, "error"); return; }
-            if (!formData.state) { showMessage(translations[currentLang].validationState, "error"); return; }
+            if (!formData.villTown) { showCustomAlert(translations[currentLang].validationVillTown); return; }
+            if (!formData.landmark) { showCustomAlert(translations[currentLang].validationLandmark); return; }
+            if (!formData.district) { showCustomAlert(translations[currentLang].validationDistrict); return; }
+            if (!formData.state) { showCustomAlert(translations[currentLang].validationState); return; }
             
             // Validate Pin Code
             if (!formData.pinCode) { 
-                showMessage(translations[currentLang].validationPinCode, "error"); 
+                showCustomAlert(translations[currentLang].validationPinCode); 
                 return; 
             }
             if (!isValidPinCode(formData.pinCode)) {
-                showMessage(translations[currentLang].pinCodeError, "error");
-                pinError.textContent = translations[currentLang].pinCodeError;
-                pinError.classList.remove('hidden');
+                showCustomAlert(translations[currentLang].pinCodeError);
                 return;
-            } else {
-                pinError.classList.add('hidden');            }
+            }
                 
             // Validate WhatsApp Number
             const whatsappNo = formData.whatsapp;
             if (!whatsappNo) {
-                showMessage(translations[currentLang].whatsappError, "error");
-                whatsappError.textContent = translations[currentLang].whatsappError;
-                whatsappError.classList.remove('hidden');
+                showCustomAlert(translations[currentLang].whatsappError);
                 return;
             } else if (!isValidIndianMobile(whatsappNo)) {
-                showMessage(translations[currentLang].whatsappError, "error");
-                whatsappError.textContent = translations[currentLang].whatsappError;
-                whatsappError.classList.remove('hidden');
+                showCustomAlert(translations[currentLang].whatsappError);
                 return;
-            } else {
-                whatsappError.classList.add('hidden');           }
+            }
 
             const confirmMsg = translations[currentLang].confirmMsg(
                 translations[currentLang].pujaDetailsContent[formData.pujaKey].title,
                 formData.amountINR           );
-            if (!confirm(confirmMsg)) return;
+            
+            // Replaced confirm() with a custom workflow
+            showCustomConfirm(confirmMsg, async (isConfirmed) => {
+                if (!isConfirmed) return;
 
-            try {
-                await postToGoogleSheet({
-                    status: "initiated",
-                    puja: translations['bn'].pujaDetailsContent[formData.pujaKey].title,
-                    amount: formData.amountINR,
-                    payment_id: "",
-                    members: JSON.stringify(formData.members),
-                    name: formData.name,
-                    contact: "+91" + formData.contact,
-                    email: formData.email || "N/A",
-                    address: formData.address,
-                    whatsapp: "+91" + formData.whatsapp,
-                    timestamp: new Date().toISOString()               });
-            } catch (e) {
-                console.error("Initial save to Google Sheet failed", e);           }
+                try {
+                    await postToGoogleSheet({
+                        status: "initiated",
+                        puja: translations['bn'].pujaDetailsContent[formData.pujaKey].title,
+                        amount: formData.amountINR,
+                        payment_id: "",
+                        members: JSON.stringify(formData.members),
+                        name: formData.name,
+                        contact: "+91" + formData.contact,
+                        email: formData.email || "N/A",
+                        address: formData.address,
+                        whatsapp: "+91" + formData.whatsapp,
+                        timestamp: new Date().toISOString()               });
+                } catch (e) {
+                    console.error("Initial save to Google Sheet failed", e);           }
 
-            showMessage(translations[currentLang].paymentPopupLoading, "info");
-            try {
-                await openRazorpayCheckout(formData);
-            } catch (err) {
-                console.error('Razorpay error:', err);
-                showMessage(translations[currentLang].unknownError, "error");
-                const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: err && err.message ? err.message : "unknown_error", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
-                await postToGoogleSheet(payload);           }        });
+                showMessage(translations[currentLang].paymentPopupLoading, "info");
+                try {
+                    await openRazorpayCheckout(formData);
+                } catch (err) {
+                    console.error('Razorpay error:', err);
+                    showCustomAlert(translations[currentLang].unknownError);
+                    const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: err && err.message ? err.message : "unknown_error", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
+                    await postToGoogleSheet(payload);           }
+            });
+        });
 
         const policyData = {
             terms: `
