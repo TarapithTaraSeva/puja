@@ -24,73 +24,44 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <style>
-        .input-focus:focus {
-            outline: none;
+        .input-focus:focus { outline: none;
             box-shadow: 0 0 0 3px rgba(99,102,241,0.08);
-            border-color: rgba(99,102,241,0.8);
-        }
-        @media (max-width: 640px) {
-            .mobile-sticky {
-                position: sticky;
-                bottom: 0;
-                z-index: 40;
-                padding-bottom: env(safe-area-inset-bottom);
-            }
-        }
-		
-		/* Policy Modal Styling */
-
-		#policyContent h3{
-			font-size:18px;
-			font-weight:700;
-			margin-top:20px;
-			margin-bottom:10px;
-			}
-
-		#policyContent p{
-			margin-bottom:12px;
-		}
-
-		.policy-link{
-			color:#92400e;
-			cursor:pointer;
-		}
-
-		.policy-link:hover{
-			text-decoration:underline;
-		}
-		
-    </style>
+            border-color: rgba(99,102,241,0.8); }
+        @media (max-width: 640px) { .mobile-sticky 
+        {   position: sticky; bottom: 0; z-index: 40;
+                padding-bottom: env(safe-area-inset-bottom); } }        
+        /* Policy Modal Styling */
+        #policyContent h3{
+            font-size:18px;
+            font-weight:700;
+            margin-top:20px;
+            margin-bottom:10px;         }
+        #policyContent p{
+            margin-bottom:12px;     }
+        .policy-link{
+            color:#92400e;
+            cursor:pointer;     }
+        .policy-link:hover{
+            text-decoration:underline; } </style>
 </head>
 <body class="bg-gradient-to-b from-amber-50 to-white min-h-screen text-slate-800">
-
     <div class="max-w-3xl mx-auto p-6">
-
         <header class="flex items-center justify-between gap-4 mb-4">
             <div class="flex items-center gap-4">
                 <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                    <img src="https://i.postimg.cc/nc47s1WH/Picsart-25-08-13-08-50-19-974-2.jpg" alt="তারা সেবা লোগো" class="w-full h-full object-cover">
-                </div>
+                    <img src="https://i.postimg.cc/nc47s1WH/Picsart-25-08-13-08-50-19-974-2.jpg" alt="তারা সেবা লোগো" class="w-full h-full object-cover">    </div>
                 <div>
                     <h1 class="text-2xl sm:text-3xl font-extrabold" data-lang-key="headerTitle">তাঁরা সেবা</h1>
-                    <p class="text-amber-700 mt-1 font-medium" data-lang-key="headerSubtitle">পুজো         -     Call / Wapp- 7001531377</p>
-                </div>
-            </div>
+                    <p class="text-amber-700 mt-1 font-medium" data-lang-key="headerSubtitle">পুজো          -      Call / Wapp- 7001531377</p>   </div>    </div>
             <div class="flex-shrink-0">
                 <select id="langSelect" class="border rounded-md p-2 text-sm">
                     <option value="bn">বাংলা</option>
                     <option value="hi">हिंदी</option>
-                    <option value="en">English</option>
-                </select>
-            </div>
-        </header>
-
+                    <option value="en">English</option>    </select>   </div>     </header>
         <section class="bg-white rounded-2xl shadow p-5 mb-4">
             <p class="text-sm text-slate-600" data-lang-key="welcomeMessage">
-                স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি)।
-            </p>
+                স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি)। </p>
         </section>
-
         <section class="bg-white rounded-2xl shadow p-5 mb-4">
             <label class="block text-sm font-medium text-slate-700 mb-2" data-lang-key="pujaSelectLabel"> পুজো নির্বাচন করুন:</label>
             <select id="pujaSelect" class="w-full border rounded-md p-3 input-focus" aria-label="পুজো নির্বাচন">
@@ -98,114 +69,152 @@
                 <option value="puja1" data-price="751" data-lang-key="puja1Option">স্পেশাল অঞ্জলী ও যজ্ঞাহুতি পূজা — ₹ 751/-</option>
                 <option value="puja2" data-price="1101" data-lang-key="puja2Option">স্পেশাল সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা — ₹ 1101/-</option>
                 <option value="puja3" data-price="1601" data-lang-key="puja3Option">স্পেশাল শীতল ভোগ নিবেদন সিঙ্গার — ₹ 1601/-</option>
-                <option value="puja4" data-price="2101" data-lang-key="puja4Option">স্পেশাল মধ্যাহ্ন ভোগ নিবেদন সিঙ্গার — ₹ 2101/-</option>
-            </select>
-
+                <option value="puja4" data-price="2101" data-lang-key="puja4Option">স্পেশাল মধ্যাহ্ন ভোগ নিবেদন সিঙ্গার — ₹ 2101/-</option>   </select>
             <div id="pujaDetails" class="mt-3 hidden">
                 <div class="prose prose-sm max-w-none text-slate-700">
                     <h3 id="pujaTitle" class="text-lg font-semibold"></h3>
                     <p id="pujaPrice" class="text-amber-600 font-bold"></p>
                     <div id="pujaInclusions" class="mt-2 text-sm bg-amber-50 p-4 rounded-md border"></div>
-                    <div id="pujaCourier" class="mt-2 text-sm bg-white p-3 rounded-md border"></div>
-                </div>
-            </div>
+                    <div id="pujaCourier" class="mt-2 text-sm bg-white p-3 rounded-md border"></div>   </div>   </div>
         </section>
-
         <section id="membersSection" class="bg-white rounded-2xl shadow p-5 mb-4 hidden">
             <h4 class="text-lg font-semibold mb-2" data-lang-key="membersSectionTitle">আপনাদের নাম ও গোত্র লিখুন</h4>
-            <p class="text-sm text-slate-600 mb-2" data-lang-key="membersSectionSubtitle">আপনি চাইলে ৫ জন পর্যন্ত নাম ও গোত্র লিখতে পারেন (কমপক্ষে একজনের নাম ও গোত্র লিখুন)</p>
-            <div id="membersContainer" class="space-y-2"></div>
+            <p class="text-sm text-slate-600 mb-4" data-lang-key="membersSectionSubtitle">আপনি চাইলে ৫ জন পর্যন্ত নাম ও গোত্র লিখতে পারেন (কমপক্ষে একজনের নাম ও গোত্র লিখুন)</p>
+            <div id="membersContainer" class="space-y-3"></div>
+            <div class="mt-4">
+                <button type="button" id="addMemberBtn" class="inline-flex items-center text-sm font-semibold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-lg border border-amber-200 transition-colors">
+                    <span class="mr-1 text-base">+</span> <span data-lang-key="addMoreBtnText">আরও নাম যুক্ত করুন</span>
+                </button>
+            </div>
         </section>
-
         <section id="addressSection" class="bg-white rounded-2xl shadow p-5 mb-4 hidden">
             <h4 class="text-lg font-semibold mb-2" data-lang-key="addressSectionTitle">আপনার বাড়ির ঠিকানা লিখুন</h4>
             <p class="text-sm text-slate-600 mb-2" data-lang-key="addressSectionSubtitle">প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার করার জন্য সম্পূর্ণ ঠিকানা প্রয়োজন।</p>
-
             <div class="space-y-3">
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="nameField" data-lang-key="fullNameLabel" data-is-mandatory="true">আপনার পুরো নাম</label>
-                    <input type="text" id="nameField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="namePlaceholder" placeholder="নাম" required>
-                </div>
+                    <input type="text" id="nameField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="namePlaceholder" placeholder="নাম" required>     </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="contactField" data-lang-key="contactLabel" data-is-mandatory="true">যোগাযোগের ফোন নম্বর</label>
-                    <input type="tel" id="contactField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="phonePlaceholder" placeholder="ফোন নম্বর" required pattern="[0-9]{10}">
+                    <div class="flex rounded-md shadow-sm">
+                        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm font-semibold select-none">+91</span>
+                        <input type="tel" id="contactField" class="w-full border rounded-r-md p-3 input-focus" data-lang-placeholder-key="phonePlaceholder" placeholder="১০ অঙ্কের ফোন নম্বর দিন" required pattern="[6-9][0-9]{9}" maxlength="10">
+                    </div>
+                    <p id="contactError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="contactNumberError">দয়া করে একটি সঠিক ১০-সংখ্যার ফোন নম্বর দিন।</p>
                 </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="emailField" data-lang-key="emailLabel" data-is-mandatory="false">ইমেইল আইডি</label>
+                    <input type="email" id="emailField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="emailPlaceholder" placeholder="আপনার পুরো ইমেইল আইডি  লিখুন">   </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="villTownField" data-lang-key="villTownLabel" data-is-mandatory="true">গ্রাম/শহর</label>
-                    <input type="text" id="villTownField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="villTownPlaceholder" placeholder="গ্রাম/শহর" required>
-                </div>
+                    <input type="text" id="villTownField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="villTownPlaceholder" placeholder="গ্রাম/শহর" required>   </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="roadLaneField" data-lang-key="roadLaneLabel" data-is-mandatory="false">রাস্তা/লেন</label>
-                    <input type="text" id="roadLaneField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="roadLanePlaceholder" placeholder="রাস্তা/লেন (ঐচ্ছিক)">
-                </div>
+                    <input type="text" id="roadLaneField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="roadLanePlaceholder" placeholder="রাস্তা/লেন (ঐচ্ছিক)">   </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="landmarkField" data-lang-key="landmarkLabel" data-is-mandatory="true">ল্যান্ডমার্ক</label>
                     <input type="text" id="landmarkField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="landmarkPlaceholder" placeholder="কাছাকাছি বিখ্যাত স্থান/ল্যান্ডমার্ক" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="pinCodeField" data-lang-key="pinCodeLabel" data-is-mandatory="true">পিন কোড</label>
-                    <input type="text" id="pinCodeField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="pinCodePlaceholder" placeholder="ছয় অঙ্কের পিন কোড" required pattern="[0-9]{6}">
-                    <p id="pinError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="pinCodeError">দয়া করে একটি সঠিক ৬-সংখ্যার পিন কোড দিন।</p>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="districtField" data-lang-key="districtLabel" data-is-mandatory="true">জেলা</label>
+                    <input type="text" id="districtField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="districtPlaceholder" placeholder="আপনার জেলার নাম লিখুন" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="stateField" data-lang-key="stateLabel" data-is-mandatory="true">রাজ্য</label>
-                    <input type="text" id="stateField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="statePlaceholder" placeholder="রাজ্য" required>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="stateSelect" data-lang-key="stateLabel" data-is-mandatory="true">রাজ্য</label>
+                    <select id="stateSelect" class="w-full border rounded-md p-3 input-focus" required>
+                        <option value="" data-lang-key="selectStatePlaceholder">-- রাজ্য নির্বাচন করুন --</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
                 </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="pinCodeField" data-lang-key="pinCodeLabel" data-is-mandatory="true">পিন কোড</label>
+                    <input type="text" id="pinCodeField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="pinCodePlaceholder" placeholder="ছয় অঙ্কের পিন কোড" required pattern="[0-9]{6}" maxlength="6">
+                    <p id="pinError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="pinCodeError">দয়া করে একটি সঠিক ৬-সংখ্যার পিন কোড দিন।</p>     </div>
             </div>
-
             <div class="mt-3">
                 <label class="block text-sm font-medium text-slate-700 mb-1" for="whatsappField" data-lang-key="whatsappLabel" data-is-mandatory="true">আপনার হোয়াটসঅ্যাপ নম্বর লিখুন</label>
-                <input type="tel" id="whatsappField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="whatsappPlaceholder" placeholder="আপনার হোয়াটসঅ্যাপ নম্বর লিখুন" required pattern="[0-9]{10}">
+                <div class="flex rounded-md shadow-sm">
+                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm font-semibold select-none">+91</span>
+                    <input type="tel" id="whatsappField" class="w-full border rounded-r-md p-3 input-focus" data-lang-placeholder-key="whatsappPlaceholder" placeholder="১০ অঙ্কের হোয়াটসঅ্যাপ নম্বর দিন" required pattern="[6-9][0-9]{9}" maxlength="10">
+                </div>
                 <p id="whatsappError" class="text-sm text-red-500 mt-1 hidden" data-lang-key="whatsappError">দয়া করে একটি সঠিক ১০-সংখ্যার হোয়াটসঅ্যাপ নম্বর দিন।</p>
-            </div>
-        </section>
-
+            </div>      </section>
         <div id="paymentArea" class="hidden">
             <div class="bg-white rounded-2xl shadow p-5 mb-4">
                 <p class="text-sm text-slate-700 mb-3" data-lang-key="paymentIntro">সমস্ত ফাঁকা জায়গা গুলি পূরণ করার পরে নিচে পেমেন্ট করে পুজো পাঠান।</p>
                 <button id="payBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-md" data-lang-key="payButton">
-                    পেমেন্ট করুন ও পুজো পাঠানোর প্রক্রিয়া সম্পূর্ণ করুন
-                </button>
-                <p class="text-xs text-slate-500 mt-2">Secure & Verified Payment Gateway - Razorpay</p>
-            </div>
-        </div>
-
+                    পেমেন্ট করুন ও পুজো পাঠানোর প্রক্রিয়া সম্পূর্ণ করুন     </button>
+                <p class="text-xs text-slate-500 mt-2">Secure & Verified Payment Gateway - Razorpay</p>   </div>    </div>
         <div id="messageArea" class="mb-4"></div>
-
         <footer class="text-center text-xs text-slate-500 mt-8 border-t pt-5">
-			<div class="mb-3">
-				<span data-lang-key="footerText">
-					© 2025 Tara Seva - Tarapith, West Bengal, India
-				</span>
-			</div>
+            <div class="mb-3">
+                <span data-lang-key="footerText">
+                    © 2025 Tara Seva - Tarapith, West Bengal, India  </span>   </div>
 
-			<div class="flex flex-wrap justify-center gap-4 text-sm">
-				<a href="#" onclick="openPolicy('terms')" class="text-amber-700 hover:underline">
-					Terms & Conditions
-				</a>
-
-				<a href="#" onclick="openPolicy('privacy')" class="text-amber-700 hover:underline">
-					Privacy Policy
-				</a>
-
-				<a href="#" onclick="openPolicy('refund')" class="text-amber-700 hover:underline">
-					Refund & Cancellation Policy
-				</a>
-
-				<a href="#" onclick="openPolicy('shipping')" class="text-amber-700 hover:underline">
-					Shipping & Delivery Policy
-				</a>
-			</div>
-		</footer>
-
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="#" onclick="openPolicy('terms')" class="text-amber-700 hover:underline">
+                    Terms & Conditions  </a>
+                <a href="#" onclick="openPolicy('privacy')" class="text-amber-700 hover:underline">
+                    Privacy Policy  </a>
+                <a href="#" onclick="openPolicy('refund')" class="text-amber-700 hover:underline">
+                    Refund & Cancellation Policy    </a>
+                <a href="#" onclick="openPolicy('shipping')" class="text-amber-700 hover:underline">
+                    Shipping & Delivery Policy  </a>   </div>  </footer> 
     </div>
+
+    <!-- POLICY MODAL -->
+    <div id="policyModal" class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+            <div class="flex justify-between items-center p-5 border-b">
+                <h2 id="policyTitle" class="text-xl font-bold text-slate-800"></h2>
+                <button onclick="closePolicy()" class="text-slate-500 hover:text-red-500 text-2xl">
+                    &times;
+                </button>
+            </div>
+            <div id="policyContent" class="p-6 overflow-y-auto max-h-[75vh] text-sm text-slate-700 leading-7">
+            </div>   </div>  </div>
 
     <script>
         const translations = {
             bn: {
                 pageTitle: "তাঁরা সেবা ",
                 headerTitle: "তাঁরা সেবা",
-                headerSubtitle: " পুজো          -      Call / Wapp- 7001531377",
+                headerSubtitle: " পুজো           -      Call / Wapp- 7001531377",
                 welcomeMessage: "স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি)।",
                 pujaSelectLabel: "পুজো নির্বাচন করুন :",
                 selectPujaPlaceholder: "--  নির্বাচন করতে এখানে স্পর্শ করুন --",
@@ -216,30 +225,34 @@
                 pujaPriceText: "মূল্য:",
                 membersSectionTitle: "আপনাদের নাম ও গোত্র লিখুন",
                 membersSectionSubtitle: "আপনি চাইলে ৫ জন পর্যন্ত নাম ও গোত্র লিখতে পারেন (কমপক্ষে একজনের নাম ও গোত্র লিখুন)",
-                nameLabel: "নাম",
-                gotraLabel: "গোত্র",
-                nameInputPlaceholder: "পুরো নাম (যদি নেই, ফাঁকা রাখুন)",
-                gotraInputPlaceholder: "গোত্র লিখুন (যদি নেই, ফাঁকা রাখুন)",
+                nameInputPlaceholder: "পুরো নাম লিখুন",
+                gotraInputPlaceholder: "গোত্র লিখুন (যদি নেই ফাঁকা রাখুন)",
+                addMoreBtnText: "আরও নাম যুক্ত করুন",
                 addressSectionTitle: "আপনার বাড়ির ঠিকানা লিখুন",
                 addressSectionSubtitle: "প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার করার জন্য সম্পূর্ণ ঠিকানা প্রয়োজন।",
                 fullNameLabel: "আপনার পুরো নাম",
                 contactLabel: "যোগাযোগের ফোন নম্বর",
+                emailLabel: "ইমেইল আইডি",
                 villTownLabel: "গ্রাম/শহর",
                 roadLaneLabel: "রাস্তা/লেন",
                 landmarkLabel: "ল্যান্ডমার্ক",
-                pinCodeLabel: "পিন কোড",
+                districtLabel: "জেলা",
                 stateLabel: "রাজ্য",
+                pinCodeLabel: "পিন কোড",
                 whatsappLabel: "আপনার হোয়াটসঅ্যাপ নম্বর লিখুন",
                 namePlaceholder: "নাম",
-                phonePlaceholder: "ফোন নম্বর",
+                phonePlaceholder: "১০ অঙ্কের ফোন নম্বর দিন",
+                emailPlaceholder: "আপনার পুরো ইমেইল আইডি লিখুন",
                 villTownPlaceholder: "গ্রাম/শহর",
                 roadLanePlaceholder: "রাস্তা/লেন (ঐচ্ছিক)",
                 landmarkPlaceholder: "কাছাকাছি বিখ্যাত স্থান/ল্যান্ডমার্ক",
+                districtPlaceholder: "আপনার জেলার নাম লিখুন",
+                selectStatePlaceholder: "-- রাজ্য নির্বাচন করুন --",
                 pinCodePlaceholder: "ছয় অঙ্কের পিন কোড",
-                statePlaceholder: "রাজ্য",
-                whatsappPlaceholder: "আপনার হোয়াটসঅ্যাপ নম্বর লিখুন",
+                whatsappPlaceholder: "১০ অঙ্কের হোয়াটসঅ্যাপ নম্বর দিন",
                 pinCodeError: "দয়া করে একটি সঠিক ৬-সংখ্যার পিন কোড দিন।",
                 whatsappError: "দয়া করে একটি সঠিক ১০-সংখ্যার হোয়াটসঅ্যাপ নম্বর দিন।",
+                contactNumberError: "দয়া করে একটি সঠিক ১০-সংখ্যার ফোন নম্বর দিন।",
                 paymentIntro: "সমস্ত ফাঁকা জায়গা গুলি পূরণ করার পরে নিচে পেমেন্ট করে পুজো পাঠান।",
                 payButton: "পেমেন্ট করুন ও পুজো পাঠানোর প্রক্রিয়া সম্পূর্ণ করুন",
                 confirmMsg: (pujaTitle, amount) => `আপনি পুজোর জন্য'${pujaTitle}' (₹${amount}) পেমেন্ট করতে যাচ্ছেন। চালিয়ে যেতে চান?`,
@@ -250,35 +263,31 @@
                 unknownError: "পেমেন্টে ত্রুটি হয়েছে। পরে আবার চেষ্টা করুন।",
                 validationPujaSelect: "দয়া করে একটি পুজো নির্বাচন করুন।",
                 validationMinMembers: "দয়া করে অন্তত একজনের নাম ও গোত্র লিখুন।",
-                validationFullName: "দয়া করে আপনার সম্পূর্ণ ঠিকানা দিন প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার করার জন্য।",
+                validationFullName: "দয়া করে আপনার সম্পূর্ণ নাম দিন প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার করার জন্য।",
                 validationContact: "দয়া করে যোগাযোগের ফোন নম্বর দিন।",
                 validationVillTown: "দয়া করে গ্রাম/শহর দিন।",
                 validationLandmark: "দয়া করে ল্যান্ডমার্ক দিন।",
+                validationDistrict: "দয়া করে জেলার নাম দিন।",
+                validationState: "দয়া করে রাজ্য নির্বাচন করুন।",
                 validationPinCode: "দয়া করে পিন কোড দিন।",
-                validationState: "দয়া করে রাজ্য দিন।",
-                footerText: "© 2025 তাঁরা সেৱা - তারাপীঠ, তাঁরা সেৱা       -     Call / Wapp- 7001531377",
+                footerText: "© 2025 তাঁরা সেৱা - তারাপীঠ, তাঁরা সেৱা       -      Call / Wapp- 7001531377",
                 pujaDetailsContent: {
                     puja1: {
                         title: "স্পেশাল অঞ্জলী ও যজ্ঞাহুতি পূজা",
-                        inclusions: `<p> তাঁরা মায়ের এই  বিশেষ পূজায় আপনাদের নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। যা আপনার এবং আপনার পরিবারের সুখ ও সমৃদ্ধির জন্য নিবেদন করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল, সিঁদুর, আলতা, সুগন্ধী তেল</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম এবং অন্যান্য সামগ্রী</li></ul>`,
-                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>পুষ্প আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি/পেঁড়া (শুকনো) এবং অন্যান্য সামগ্রী</li></ol>`
-                    },
+                        inclusions: `<p> তাঁরা মায়ের এই  বিশেষ পূজায় আপনাদের নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। যা আপনার এবং আপনার পরিবারের সুখ ও সমৃদ্ধির জন্য নিবেদন করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল, সিঁদুর, আলতা, সুগন্ধী তেল</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, tiệnনী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম এবং অন্যান্য সামগ্রী</li></ul>`,
+                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>পুষ্প আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি/পেঁড়া (শুকনো) এবং অন্যান্য সামগ্রী</li></ol>`    },
                     puja2: {
                         title: "স্পেশাল সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
                         inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূজায় আপনাদের নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। যা আপনার এবং আপনার পরিবারের সুখ ও সমৃদ্ধির জন্য নিবেদন করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল, সিঁদুর, আলতা, সুগন্ধী তেল</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম এবং অন্যান্য সামগ্রী</li></ul>`,
-                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>পুষ্প আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি/পেঁড়া (শুকনো) এবং অন্যান্য সামগ্রী</li></ol>`
-                    },
+                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>পুষ্প আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি/পেঁড়া (শুকনো) এবং অন্যান্য সামগ্রী</li></ol>`    },
                     puja3: {
                         title: "স্পেশাল শীতল ভোগ নিবেদন সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
                         inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূর্ণ লগ্নে মা তারাকে শীতল ভোগ নিবেদন করা হবে। আপনার নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল ও ১০৮ জবা ফুলের মালা, সিঁদুর, আলতা, সুগন্ধী তেল, অস্বগন্ধা</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম</li><li>৭) শীতল ভোগের পরাত নিবেদন এবং অন্যান্য সামগ্রী</li></ul>`,
-                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি (বড়)</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক ও অস্বাগন্ধা</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`
-                    },
+                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি (বড়)</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক ও অস্বাগন্ধা</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`    },
                     puja4: {
                         title: "স্পেশাল মধ্যাহ্ন ভোগ নিবেদন সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
                         inclusions: `<p>তাঁরা মায়ের এই  বিশেষ পূর্ণ লগ্নে মধ্যাহ্ন ভোগ নিবেদন করা হবে। আপনার নাম, গোত্র এবং সংকল্প অনুসারে পূজা করা হবে। একাধিক ব্রাহ্মণ দ্বারা মন্ত্র পাঠ ও হোম যজ্ঞ করা হবে। শত্রুদমন, বাধা নিবারণ এবং সার্বিক সুরক্ষার জন্য অত্যন্ত ফলদায়ক। পূজার পর বিশেষ প্রার্থনা করা হবে। সাথে থাকবে মঙ্গলদীপ প্রজ্জ্বলন ও আপনাকে প্রসাদ পাঠানোর ব্যবস্থা।</p><strong>পুজোর উপকরণ:</strong><ul><li>১) আপনার নাম ও গোত্র</li><li>২) ফুল ও ১০৮ জবা ও অপরাজিতা ফুলের মালা, সিঁদুর, আলতা, সুগন্ধী তেল, অস্বগন্ধা</li><li>৩) পেঁড়া ও ফল</li><li>৪) ধাগা, চূড়নী</li><li>৫) কারণ (মদ)</li><li>৬) যোগ্যার সরঞ্জাম</li><li>৭) মধ্যান্য ভোগের পড়াত নিবেদন এবং অন্যান্য সামগ্রী</li></ul>`,
-                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি (বড়)</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক ও অস্বাগন্ধা</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`
-                    }
-                }
+                        courier: `<strong>আপনার বাড়িতে যা পৌঁছাবে (কুরিয়ারে):</strong><ol><li>মা তারার ছবি (বড়)</li><li>শুকনো প্রসাদ</li><li>পুজোর চূড়নী ও ধাগা</li><li>আশীর্বাদ</li><li>যজ্ঞ তিলক ও সিঁদুর তিলক ও অস্বাগন্ধা</li><li>কারণ প্রসাদ (মদ)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`   }    }
             },
             hi: {
                 pageTitle: "तारा सेवा ",
@@ -293,31 +302,35 @@
                 puja4Option: "स्पेशल मध्याह्न भोग निवेदन शृंगार — ₹ 2101/-",
                 pujaPriceText: "मूल्य:",
                 membersSectionTitle: "अपने नाम और गोत्र लिखें",
-                membersSectionSubtitle: "आप 5 लोगों तक के नाम और गोत्र लिख सकते हैं (कम से कम एक व्यक्ति का नाम और गोत्र लिखें)",
-                nameLabel: "नाम",
-                gotraLabel: "गोत्र",
-                nameInputPlaceholder: "पूरा नाम (यदि नहीं, खाली छोड़ दें)",
-                gotraInputPlaceholder: "गोत्र लिखें (यदि नहीं, खाली छोड़ दें)",
+                membersSectionSubtitle: "आप 5 लोगों तक के नामและ गोत्र लिख सकते हैं (कम से कम एक व्यक्ति का नाम और गोत्र लिखें)",
+                nameInputPlaceholder: "पूरा नाम लिखें",
+                gotraInputPlaceholder: "गोत्र लिखें (यदि नहीं है तो खाली छोड़ें)",
+                addMoreBtnText: "और नाम जोड़ें",
                 addressSectionTitle: "अपना घर का पता लिखें",
                 addressSectionSubtitle: "प्रसाद और आशीर्वाद बॉक्स कूरियर करने के लिए पूरा पता आवश्यक है।",
                 fullNameLabel: "आपका पूरा नाम",
                 contactLabel: "संपर्क फ़ोन नंबर",
+                emailLabel: "ईमेल आईडी",
                 villTownLabel: "गाँव/शहर",
                 roadLaneLabel: "सड़क/गली",
                 landmarkLabel: "लैंडमार्क",
-                pinCodeLabel: "पिन कोड",
+                districtLabel: "जिला",
                 stateLabel: "राज्य",
+                pinCodeLabel: "पिन कोड",
                 whatsappLabel: "अपना व्हाट्सएप नंबर लिखें",
                 namePlaceholder: "नाम",
-                phonePlaceholder: "फ़ोन नंबर",
+                phonePlaceholder: "10 अंकों का फ़ोन नंबर दर्ज करें",
+                emailPlaceholder: "आपकी पूरा ईमेल आईडी लिखें",
                 villTownPlaceholder: "गाँव/शहर",
                 roadLanePlaceholder: "सड़क/गली (वैकल्पिक)",
-                landmarkPlaceholder: "निकटवर्ती प्रसिद्ध स्थान/लैंडमार्क",
+                landmarkPlaceholder: "निकटवर्ती प्रसिद्ध स्थान/लैंडマーク",
+                districtPlaceholder: "अपने जिले का नाम लिखें",
+                selectStatePlaceholder: "-- राज्य चुनें --",
                 pinCodePlaceholder: "छह अंकों का पिन कोड",
-                statePlaceholder: "राज्य",
-                whatsappPlaceholder: "अपना व्हाट्सएप नंबर लिखें",
+                whatsappPlaceholder: "10 अंकों का व्हाट्सएप नंबर दर्ज करें",
                 pinCodeError: "कृपया सही 6-अंकीय पिन कोड डालें।",
                 whatsappError: "कृपया सही 10-अंकीय व्हाट्सएप नंबर डालें।",
+                contactNumberError: "कृपया सही 10-अंकीय फ़ोन नंबर डालें।",
                 paymentIntro: "सभी खाली जगहें भरने के बाद, नीचे भुगतान करके पूजा भेजें।",
                 payButton: "भुगतान करें और पूजा भेजने की प्रक्रिया पूरी करें",
                 confirmMsg: (pujaTitle, amount) => `आप  पूजा के लिए '${pujaTitle}' (₹${amount}) का भुगतान करने जा रहे हैं। जारी रखना चाहते हैं?`,
@@ -331,38 +344,34 @@
                 validationFullName: "कृपया अपना पूरा नाम दें।",
                 validationContact: "कृपया संपर्क फ़ोन नंबर दें।",
                 validationVillTown: "कृपया गाँव/शहर दें।",
-                validationLandmark: "कृपया लैंडमार्क दें।",
+                validationLandmark: "कृपया लैंडमार्ग दें।",
+                validationDistrict: "कृपया जिले का नाम दें।",
+                validationState: "कृपया राज्य चुनें।",
                 validationPinCode: "कृपया पिन कोड दें।",
-                validationState: "कृपया राज्य दें।",
-                footerText: "© 2025 तारा सेवा - तारापीठ, तारा सेवा        -     Call / Wapp- 7001531377  ",
+                footerText: "© 2025 तारा सेवा - तारापीठ, तारा सेवा        -      Call / Wapp- 7001531377  ",
                 pujaDetailsContent: {
                     puja1: {
                         title: "स्पेशल अंजलि और यज्ञाहुति पूजा",
-                        inclusions: `<p>माँ तारा की विशेष पूजा। इस पूजा में आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। जो आपके और आपके परिवार की सुख और समृद्धि के लिए अर्पित होगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल, सिंदूर, अलता, सुगंधित तेल</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण और अन्य सामग्री</li></ul>`,
-                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई/पेड़ा (सूखा) और अन्य सामग्री</li></ol>`
-                    },
+                        inclusions: `<p>माँ तारा की विशेष पूजा। इस पूजा में आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। जो आपके और आपकी परिवार की सुख और समृद्धि के लिए अर्पित होगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल, सिंदूर, अलता, सुगंधित तेल</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण और अन्य सामग्री</li></ul>`,
+                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>य境 तिलक और सिंदूर तिलक</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई/पेड़ा (सूखा) और अन्य सामग्री</li></ol>`    },
                     puja2: {
                         title: "स्पेशल शृंगार अंजलि और यज्ञाहुति पूजा",
                         inclusions: `<p> माँ तारा की विशेष पूजा। इस पूजा में आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। जो आपके और आपके परिवार की सुख और समृद्धि के लिए अर्पित होगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल, सिंदूर, अलता, सुगंधित तेल</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण और अन्य सामग्री</li></ul>`,
-                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई/पेड़ा (सूखा) और अन्य सामग्री</li></ol>`
-                    },
+                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई/पेड़ा (सूखा) और अन्य सामग्री</li></ol>`        },
                     puja3: {
-                        title: "স্পেশাল শীতল ভোগ নিবেদন সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
+                        title: "स्पेशल शीतल भोग निवेदन शृंगार अंजलि और यज्ञाहुति पूजा",
                         inclusions: `<p> पूर्ण लग्न में माँ तारा को शीतल भोग अर्पित किया जाएगा। आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए यह अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल और 108 जवा फूल की माला, सिंदूर, अलता, सुगंधित तेल, अश्वगंधा</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण</li><li>7) शीतल भोग का परात निवेदन और अन्य सामग्री</li></ul>`,
-                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर (बड़ी)</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक और अश्वगंधा</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई (सूखा)</li><li>माँ तारा का लॉकेट (पेंडेंट) और अन्य सामग्री</li></ol>`
-                    },
+                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर (बड़ी)</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक और अश्वगंधा</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई (सूखा)</li><li>माँ तारा का लॉकेट (पेंडेंट) और अन्य सामग्री</li></ol>`                    },
                     puja4: {
-                        title: "स्पेशल मध्याह्न भोग निবেদন সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা",
-                        inclusions: `<p> पूर्ण लग्न में मध्याह्न भोग अर्पित किया जाएगा। आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। कई ब्राह्मणों द्वारा मंत्र পাঠ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए यह अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल और 108 जवा और अपराजिता फूलों की माला, सिंदूर, अलता, सुगंधित तेल, अश्वगंधा</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण</li><li>7) मध्याह्न भोग का परात निवेदन और अन्य सामग्री</li></ul>`,
-                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर (बड़ी)</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धाগা</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक और अश्वगंधा</li><li>कारण प्रसाद (मদিরা)</li><li>মিষ্টি (শুকনো)</li><li>মা তারার লকেট (পেনডেন্ট) এবং অন্যান্য সামগ্রী</li></ol>`
-                    }
-                }
+                        title: "स्पेशल मध्याह्न भोग निवेदन शृंगार अंजलि और यज्ञाहुति पूजा",
+                        inclusions: `<p> पूर्ण लग्न में मध्याह्न भोग अर्पित किया जाएगा। आपके नाम, गोत्र और संकल्प के अनुसार पूजा की जाएगी। कई ब्राह्मणों द्वारा मंत्र पाठ और होम यज्ञ किया जाएगा। शत्रु दमन, बाधा निवारण और समग्र सुरक्षा के लिए यह अत्यंत फलदायी। पूजा के बाद विशेष प्रार्थना की जाएगी। साथ ही मंगलदीप प्रज्जवलन और आपको प्रसाद भेजने की व्यवस्था होगी।</p><strong>पूजा की सामग्री:</strong><ul><li>1) आपका नाम और गोत्र</li><li>2) फूल और 108 जवा और अपराजिता फूलों की माला, सिंदूर, अलता, सुगंधित तेल, अश्वगंधा</li><li>3) पेड़ा और फल</li><li>4) धागा, चूड़नी</li><li>5) कारण (मदिरा)</li><li>6) यज्ञ के उपकरण</li><li>7) मध्याह्न भोग का परात निवेदन और अन्य सामग्री</li></ul>`,
+                        courier: `<strong>आपके घर जो पहुंचेगा (कूरियर द्वारा):</strong><ol><li>माँ तारा की तस्वीर (बड़ी)</li><li>सूखा प्रसाद</li><li>पूजा की चूड़नी और धागा</li><li>पुष्प आशीर्वाद</li><li>यज्ञ तिलक और सिंदूर तिलक और अश्वगंधा</li><li>कारण प्रसाद (मदिरा)</li><li>मिठाई (सूखा)</li><li>माँ तारा का लॉकेट (पेंडेंट) और अन्य सामग्री</li></ol>`   }    }
             },
             en: {
                 pageTitle: "Tara Seva",
                 headerTitle: "Tara Seva",
                 headerSubtitle: "For Puja - Call / Wapp- 7001531377",
-                welcomeMessage: "Welcome! Select your preferred puja below. In the next step, you will have the option to provide the names and gotras of 1-5 individuals, followed by payment and get Prasad and Aashirwad box at your doorstep (Free Delevery).",
+                welcomeMessage: "Welcome! Select your preferred puja below. In the next step, you will have the option to provide the names and gotras of 1-5 individuals, followed by payment and get Prasad and Aashirwad box at your doorstep (Free Delivery).",
                 pujaSelectLabel: "Select Puja:",
                 selectPujaPlaceholder: "-- Tap here To Select Puja --",
                 puja1Option: "Special Anjali & Yagyahuti Puja — ₹ 751/-",
@@ -372,30 +381,34 @@
                 pujaPriceText: "Price:",
                 membersSectionTitle: "Enter Names & Gotras",
                 membersSectionSubtitle: "You can enter names and gotras for up to 5 individuals (at least one name and gotra required)",
-                nameLabel: "Name",
-                gotraLabel: "Gotra",
-                nameInputPlaceholder: "Full Name (leave blank if not applicable)",
-                gotraInputPlaceholder: "Enter Gotra (leave blank if not applicable)",
+                nameInputPlaceholder: "Enter Full Name",
+                gotraInputPlaceholder: "Enter Gotra (Leave blank if none)",
+                addMoreBtnText: "Add More Name",
                 addressSectionTitle: "Enter Your Home Address",
-                addressSectionSubtitle: "Complete address is required for courier delivery of Prasad and Aashirwad box (Free Delevery).",
+                addressSectionSubtitle: "Complete address is required for courier delivery of Prasad and Aashirwad box (Free Delivery).",
                 fullNameLabel: "Your Full Name",
                 contactLabel: "Contact Phone Number",
+                emailLabel: "Email ID",
                 villTownLabel: "Village/City",
                 roadLaneLabel: "Road/Lane",
                 landmarkLabel: "Landmark",
-                pinCodeLabel: "Pin Code",
+                districtLabel: "District",
                 stateLabel: "State",
+                pinCodeLabel: "Pin Code",
                 whatsappLabel: "Enter Your WhatsApp Number",
                 namePlaceholder: "Name",
-                phonePlaceholder: "Phone Number",
+                phonePlaceholder: "Enter 10-digit mobile number",
+                emailPlaceholder: "Enter Your Full Email ID",
                 villTownPlaceholder: "Village/City",
                 roadLanePlaceholder: "Road/Lane (Optional)",
                 landmarkPlaceholder: "Nearby famous place/Landmark",
+                districtPlaceholder: "Enter your district name",
+                selectStatePlaceholder: "-- Select State --",
                 pinCodePlaceholder: "Six-digit Pin Code",
-                statePlaceholder: "State",
-                whatsappPlaceholder: "Enter your WhatsApp number",
+                whatsappPlaceholder: "Enter 10-digit WhatsApp number",
                 pinCodeError: "Please enter a valid 6-digit pin code.",
                 whatsappError: "Please enter a valid 10-digit WhatsApp number.",
+                contactNumberError: "Please enter a valid 10-digit phone number.",
                 paymentIntro: "After filling all the empty fields, send the puja by making the payment below.",
                 payButton: "Make Payment & Complete Puja Submission Process",
                 confirmMsg: (pujaTitle, amount) => `You are about to make a payment of ₹${amount} for '${pujaTitle}' Puja. Do you want to continue?`,
@@ -406,47 +419,40 @@
                 unknownError: "Payment failed due to an error. Please try again later.",
                 validationPujaSelect: "Please select a puja.",
                 validationMinMembers: "Please enter at least one name and gotra.",
-                validationFullName: "Please provide your full address for courier delivery of Prasad and Aashirwad box.",
+                validationFullName: "Please provide your full name.",
                 validationContact: "Please provide a contact phone number.",
                 validationVillTown: "Please provide village/city.",
                 validationLandmark: "Please provide a landmark.",
+                validationDistrict: "Please provide a district name.",
+                validationState: "Please select a state.",
                 validationPinCode: "Please provide a pin code.",
-                validationState: "Please provide a state.",
-                footerText: "© 2025 Tara Seva - Tarapith, Tara Seva     -     Call / Wapp- 7001531377 ",
+                footerText: "© 2025 Tara Seva - Tarapith, Tara Seva     -      Call / Wapp- 7001531377 ",
                 pujaDetailsContent: {
                     puja1: {
                         title: "Special Anjali & Yagyahuti Puja",
                         inclusions: `<p>Special puja of Maa Tara. In this puja, the rituals will be performed according to your name, gotra, and resolve. This will be offered for the happiness and prosperity of you and your family. Mantras and Homa Yagya will be performed by multiple Brahmins. It is highly beneficial for overcoming enemies, removing obstacles, and overall protection. Special prayers will be offered after the puja. This includes lighting Mangaldeep and arranging for Prasad delivery to you.</p><strong>Puja Materials:</strong><ul><li>1) Your Name & Gotra</li><li>2) Flowers, Sindoor, Alta, Fragrant Oil</li><li>3) Peda & Fruits</li><li>4) Dhaga, Chudani</li><li>5) Karan (alcohol)</li><li>6) Yagya equipment and other items</li></ul>`,
-                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Flower Blessings</li><li>Yagya Tilak & Sindoor Tilak</li><li>Karan Prasad (alcohol)</li><li>Sweets/Peda (dry) and other items</li></ol>`
-                    },
+                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Flower Blessings</li><li>Yagya Tilak & Sindoor Tilak</li><li>Karan Prasad (alcohol)</li><li>Sweets/Peda (dry) and other items</li></ol>`    },
                     puja2: {
                         title: "Special Singer Anjali & Yagyahuti Puja",
                         inclusions: `<p>Special puja of Maa Tara. In this puja, the rituals will be performed according to your name, gotra, and resolve. This will be offered for the happiness and prosperity of you and your family. Mantras and Homa Yagya will be performed by multiple Brahmins. It is highly beneficial for overcoming enemies, removing obstacles, and overall protection. Special prayers will be offered after the puja. This includes lighting Mangaldeep and arranging for Prasad delivery to you.</p><strong>Puja Materials:</strong><ul><li>1) Your Name & Gotra</li><li>2) Flowers, Sindoor, Alta, Fragrant Oil</li><li>3) Peda & Fruits</li><li>4) Dhaga, Chudani</li><li>5) Karan (alcohol)</li><li>6) Yagya equipment and other items</li></ul>`,
-                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Flower Blessings</li><li>Yagya Tilak & Sindoor Tilak</li><li>Karan Prasad (alcohol)</li><li>Sweets/Peda (dry) and other items</li></ol>`
-                    },
+                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Flower Blessings</li><li>Yagya Tilak & Sindoor Tilak</li><li>Karan Prasad (alcohol)</li><li>Sweets/Peda (dry) and other items</li></ol>`    },
                     puja3: {
                         title: "Special Sheetal Bhog Nivedan Singer Anjali & Yagyahuti Puja",
                         inclusions: `<p>On this auspicious occasion Sheetal Bhog will be offered to Maa Tara. The puja will be performed according to your name, gotra, and resolve. Mantras and Homa Yagya will be performed by multiple Brahmins. It is highly beneficial for overcoming enemies, removing obstacles, and overall protection. Special prayers will be offered after the puja. This includes lighting Mangaldeep and arranging for Prasad delivery to you.</p><strong>Puja Materials:</strong><ul><li>1) Your Name & Gotra</li><li>2) Flowers & 108 Hibiscus flower garland, Sindoor, Alta, Fragrant Oil, Ashwagandha</li><li>3) Peda & Fruits</li><li>4) Dhaga, Chudani</li><li>5) Karan (alcohol)</li><li>6) Yagya equipment</li><li>7) Offering of Sheetal Bhog platter and other items</li></ul>`,
-                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture (Large)</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Blessings</li><li>Yagya Tilak & Sindoor Tilak & Ashwagandha</li><li>Karan Prasad (alcohol)</li><li>Sweets (dry)</li><li>Maa Tara's Locket (Pendant) and other items</li></ol>`
-                    },
+                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture (Large)</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Blessings</li><li>Yagya Tilak & Sindoor Tilak & Ashwagandha</li><li>Karan Prasad (alcohol)</li><li>Sweets (dry)</li><li>Maa Tara's Locket (Pendant) and other items</li></ol>`    },
                     puja4: {
                         title: "Special Madhyahna Bhog Nivedan Singer Anjali & Yagyahuti Puja",
                         inclusions: `<p>On this auspicious occasion Madhyahna Bhog (midday meal offering) will be offered. The puja will be performed according to your name, gotra, and resolve. Mantras and Homa Yagya will be performed by multiple Brahmins. It is highly beneficial for overcoming enemies, removing obstacles, and overall protection. Special prayers will be offered after the puja. This includes lighting Mangaldeep and arranging for Prasad delivery to you.</p><strong>Puja Materials:</strong><ul><li>1) Your Name & Gotra</li><li>2) Flowers & 108 Hibiscus and Aparajita flower garland, Sindoor, Alta, Fragrant Oil, Ashwagandha</li><li>3) Peda & Fruits</li><li>4) Dhaga, Chudani</li><li>5) Karan (alcohol)</li><li>6) Yagya equipment</li><li>7) Offering of Madhyahna Bhog platter and other items</li></ul>`,
-                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture (Large)</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Blessings</li><li>Yagya Tilak & Sindoor Tilak & Ashwagandha</li><li>Karan Prasad (alcohol)</li><li>Sweets (dry)</li><li>Maa Tara's Locket (Pendant) and other items</li></ol>`
-                    }
+                        courier: `<strong>What you will receive at your home (via courier):</strong><ol><li>Maa Tara's Picture (Large)</li><li>Dry Prasad</li><li>Puja Chudani & Dhaga</li><li>Blessings</li><li>Yagya Tilak & Sindoor Tilak & Ashwagandha</li><li>Karan Prasad (alcohol)</li><li>Sweets (dry)</li><li>Maa Tara's Locket (Pendant) and other items</li></ol>`   }
                 }
             }
         };
 
         const RAZORPAY_KEY = "a1b2c3d4e5f6g7";
         const GOOGLE_SHEET_WEBAPP = "https://script.google.com/macros/s/AKfycby0kU6jqshwpoSr9Cl3esuP8KHybYREAS2fIm7TvowD6sk0YSnhA7wXOMEa09jypHweyQ/exec";
+        const pujaPrices = { puja1: 751, puja2: 1101, puja3: 1601, puja4: 2101 };
 
-        const pujaPrices = {
-            puja1: 751,
-            puja2: 1101,
-            puja3: 1601,
-            puja4: 2101
-        };
+        let visibleMembersCount = 1;
 
         const langSelect = document.getElementById('langSelect');
         const pujaSelect = document.getElementById('pujaSelect');
@@ -457,14 +463,18 @@
         const pujaCourier = document.getElementById('pujaCourier');
         const membersSection = document.getElementById('membersSection');
         const membersContainer = document.getElementById('membersContainer');
+        const addMemberBtn = document.getElementById('addMemberBtn');
         const addressSection = document.getElementById('addressSection');
         const nameField = document.getElementById('nameField');
         const contactField = document.getElementById('contactField');
+        const contactError = document.getElementById('contactError');
+        const emailField = document.getElementById('emailField');
         const villTownField = document.getElementById('villTownField');
         const roadLaneField = document.getElementById('roadLaneField');
         const landmarkField = document.getElementById('landmarkField');
+        const districtField = document.getElementById('districtField');
+        const stateSelect = document.getElementById('stateSelect');
         const pinCodeField = document.getElementById('pinCodeField');
-        const stateField = document.getElementById('stateField');
         const whatsappField = document.getElementById('whatsappField');
         const whatsappError = document.getElementById('whatsappError');
         const pinError = document.getElementById('pinError');
@@ -474,31 +484,29 @@
 
         function updateContent(lang) {
             document.documentElement.lang = lang;
-            document.title = translations[lang].pageTitle;
-            
+            document.title = translations[lang].pageTitle;          
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-key');
                 if (translations[lang][key]) {
                     element.textContent = translations[lang][key];
-                }
-            });
-
+                }  });
             document.querySelectorAll('[data-lang-placeholder-key]').forEach(element => {
                 const key = element.getAttribute('data-lang-placeholder-key');
                 if (translations[lang][key]) {
-                    element.placeholder = translations[lang][key];
-                }
-            });
-
+                    element.placeholder = translations[lang][key];    }   });
             document.querySelectorAll('#pujaSelect option').forEach(option => {
                 const value = option.value;
                 const langKey = option.getAttribute('data-lang-key');
                 if (value === "") {
                     option.textContent = translations[lang].selectPujaPlaceholder;
                 } else if (translations[lang][langKey]) {
-                    option.textContent = translations[lang][langKey];
-                }
-            });
+                    option.textContent = translations[lang][langKey];    }    });
+            
+            // Translate state dropdown placeholder
+            const firstStateOption = stateSelect.options[0];
+            if (firstStateOption) {
+                firstStateOption.textContent = translations[lang].selectStatePlaceholder;
+            }
 
             const currentPuja = pujaSelect.value;
             if (currentPuja) {
@@ -507,62 +515,84 @@
                     pujaTitleElem.innerHTML = pujaDetailsTranslated.title;
                     pujaPriceElem.innerHTML = `${translations[lang].pujaPriceText} ₹${pujaPrices[currentPuja]}`;
                     pujaInclusions.innerHTML = pujaDetailsTranslated.inclusions;
-                    pujaCourier.innerHTML = pujaDetailsTranslated.courier;
-                }
+                    pujaCourier.innerHTML = pujaDetailsTranslated.courier;    }
             } else {
                 pujaDetails.classList.add('hidden');
                 membersSection.classList.add('hidden');
                 addressSection.classList.add('hidden');
-                paymentArea.classList.add('hidden');
-            }
-
+                paymentArea.classList.add('hidden');    }
+            
             for (let i = 1; i <= 5; i++) {
-                const nameLabel = document.querySelector(`#membersContainer #member_name_label_${i}`);
-                const gotraLabel = document.querySelector(`#membersContainer #member_gotra_label_${i}`);
                 const nameInput = document.getElementById(`member_name_${i}`);
                 const gotraInput = document.getElementById(`member_gotra_${i}`);
-
-                if (nameLabel) nameLabel.textContent = `${translations[lang].nameLabel} ${i}`;
-                if (gotraLabel) gotraLabel.textContent = `${translations[lang].gotraLabel} ${i}`;
                 if (nameInput) nameInput.placeholder = translations[lang].nameInputPlaceholder;
-                if (gotraInput) gotraInput.placeholder = translations[lang].gotraInputPlaceholder;
-            }
-
-            // Restore the asterisk for mandatory fields
+                if (gotraInput) gotraInput.placeholder = translations[lang].gotraInputPlaceholder;      }
+            
             document.querySelectorAll('[data-is-mandatory="true"]').forEach(label => {
-                label.innerHTML += ' <span class="text-red-500">*</span>';
-            });
+                if (!label.querySelector('.text-red-500')) {
+                    label.innerHTML += ' <span class="text-red-500">*</span>';
+                }    });   
         }
 
         langSelect.addEventListener('change', (e) => {
             updateContent(e.target.value);
             localStorage.setItem('lang', e.target.value);
             const event = new Event('change');
-            pujaSelect.dispatchEvent(event);
-        });
+            pujaSelect.dispatchEvent(event);    });
 
-        function createMemberRows() {
+        function createAllMemberRowsData() {
             membersContainer.innerHTML = '';
             const currentLang = langSelect.value;
             for (let i = 1; i <= 5; i++) {
-                const div = document.createElement('div');
-                div.className = 'grid grid-cols-1 sm:grid-cols-3 gap-2 items-center';
-                div.innerHTML = `
-                    <label class="text-sm text-slate-600" id="member_name_label_${i}">${translations[currentLang].nameLabel} ${i}</label>
-                    <input type="text" id="member_name_${i}" class="sm:col-span-2 border rounded-md p-2 input-focus" placeholder="${translations[currentLang].nameInputPlaceholder}">
-                    <label class="text-sm text-slate-600 mt-2 sm:mt-0" id="member_gotra_label_${i}">${translations[currentLang].gotraLabel} ${i}</label>
-                    <input type="text" id="member_gotra_${i}" class="sm:col-span-2 border rounded-md p-2 input-focus" placeholder="${translations[currentLang].gotraInputPlaceholder}">
+                const rowDiv = document.createElement('div');
+                rowDiv.id = `member_row_${i}`;
+                
+                if (i > visibleMembersCount) {
+                    rowDiv.className = 'grid grid-cols-1 sm:grid-cols-2 gap-3 hidden';
+                } else {
+                    rowDiv.className = 'grid grid-cols-1 sm:grid-cols-2 gap-3';
+                }
+                
+                rowDiv.innerHTML = `
+                    <input type="text" id="member_name_${i}" class="w-full border rounded-md p-3 input-focus" placeholder="${translations[currentLang].nameInputPlaceholder}">
+                    <input type="text" id="member_gotra_${i}" class="w-full border rounded-md p-3 input-focus" placeholder="${translations[currentLang].gotraInputPlaceholder}">
                 `;
-                membersContainer.appendChild(div);
+                membersContainer.appendChild(rowDiv); 
+            }
+            manageAddButtonVisibility();
+        }
+
+        function manageAddButtonVisibility() {
+            if (visibleMembersCount >= 5) {
+                addMemberBtn.classList.add('hidden');
+            } else {
+                addMemberBtn.classList.remove('hidden');
             }
         }
+
+        addMemberBtn.addEventListener('click', () => {
+            if (visibleMembersCount < 5) {
+                visibleMembersCount++;
+                const nextRow = document.getElementById(`member_row_${visibleMembersCount}`);
+                if (nextRow) {
+                    nextRow.classList.remove('hidden');
+                }
+                manageAddButtonVisibility();
+            }
+        });
+
+        // Strict number-only restriction and prevents leading spaces
+        [contactField, whatsappField].forEach(field => {
+            field.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            });
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('lang') || 'bn';
             langSelect.value = savedLang;
-            createMemberRows();
-            updateContent(savedLang);
-        });
+            createAllMemberRowsData();
+            updateContent(savedLang);   });
 
         pujaSelect.addEventListener('change', (e) => {
             const val = e.target.value;
@@ -573,65 +603,60 @@
                 membersSection.classList.add('hidden');
                 addressSection.classList.add('hidden');
                 paymentArea.classList.add('hidden');
-                return;
-            }
+                return;   }
             const pujaDetailsTranslated = translations[currentLang].pujaDetailsContent[val];
             const price = pujaPrices[val];
-
             if (pujaDetailsTranslated) {
                 pujaTitleElem.innerHTML = pujaDetailsTranslated.title;
                 pujaPriceElem.innerHTML = `${translations[currentLang].pujaPriceText} ₹${price}`;
                 pujaInclusions.innerHTML = pujaDetailsTranslated.inclusions;
-                pujaCourier.innerHTML = pujaDetailsTranslated.courier;
-            }
+                pujaCourier.innerHTML = pujaDetailsTranslated.courier;  }
+            
+            visibleMembersCount = 1;
+            createAllMemberRowsData();
+            updateContent(currentLang);
 
             pujaDetails.classList.remove('hidden');
             membersSection.classList.remove('hidden');
             addressSection.classList.remove('hidden');
             paymentArea.classList.remove('hidden');
-            pujaDetails.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
+            pujaDetails.scrollIntoView({ behavior: 'smooth', block: 'center' });     });
 
         function collectFormData() {
             const selectedKey = pujaSelect.value;
+            if (!selectedKey) return {};
             const pujaPriceValue = pujaPrices[selectedKey];
             const members = [];
-            for (let i = 1; i <= 5; i++) {
+            
+            for (let i = 1; i <= visibleMembersCount; i++) {
                 const name = document.getElementById(`member_name_${i}`).value.trim();
                 const gotra = document.getElementById(`member_gotra_${i}`).value.trim();
-                if (name || gotra) members.push({ name: name || "-", gotra: gotra || "-" });
+                if (name || gotra) {
+                    members.push({ name: name || "-", gotra: gotra || "-" });    
+                }    
             }
             const name = nameField.value.trim();
             const contact = contactField.value.trim();
+            const email = emailField.value.trim();
             const villTown = villTownField.value.trim();
             const roadLane = roadLaneField.value.trim();
             const landmark = landmarkField.value.trim();
+            const district = districtField.value.trim();
+            const state = stateSelect.value;
             const pinCode = pinCodeField.value.trim();
-            const state = stateField.value.trim();
-            const whatsapp = whatsappField.value.trim();
-            
+            const whatsapp = whatsappField.value.trim();          
             const pujaTitleBengali = translations['bn'].pujaDetailsContent[selectedKey].title;
-            const address = `নাম: ${name}, ফোন: ${contact}, ঠিকানা: ${roadLane ? roadLane + ", " : ""}${villTown}, ল্যান্ডমার্ক: ${landmark}, পিন: ${pinCode}, রাজ্য: ${state}`;
-
-            return { pujaKey: selectedKey, pujaTitle: pujaTitleBengali, amountINR: pujaPriceValue, members, whatsapp, address, name, contact, villTown, roadLane, landmark, pinCode, state };
-        }
+            const address = `নাম: ${name}, ফোন: +91${contact}, ইমেইল: ${email || "N/A"}, ঠিকানা: ${roadLane ? roadLane + ", " : ""}${villTown}, ল্যান্ডমার্ক: ${landmark}, জেলা: ${district}, রাজ্য: ${state}, পিন: ${pinCode}`;
+            return { pujaKey: selectedKey, pujaTitle: pujaTitleBengali, amountINR: pujaPriceValue, members, whatsapp, address, name, contact, email, villTown, roadLane, landmark, district, state, pinCode };    }
 
         function showMessage(text, type = 'info') {
             const colors = { info: 'bg-blue-50 border-blue-200 text-blue-800', success: 'bg-green-50 border-green-200 text-green-800', error: 'bg-red-50 border-red-200 text-red-800' };
             messageArea.innerHTML = `<div class="p-4 rounded-md border ${colors[type]}"><div class="text-sm">${text}</div></div>`;
-            messageArea.scrollIntoView({ behavior: 'smooth' });
-        }
+            messageArea.scrollIntoView({ behavior: 'smooth' });    }
+
         function clearMessage() { messageArea.innerHTML = ''; }
-
-        function isValidIndianMobile(number) {
-            const mobileRegex = /^[6-9]\d{9}$/;
-            return mobileRegex.test(number);
-        }
-
-        function isValidPinCode(pin) {
-            const pinRegex = /^[0-9]{6}$/;
-            return pinRegex.test(pin);
-        }
+        function isValidIndianMobile(number) { return /^[6-9]\d{9}$/.test(number); }
+        function isValidPinCode(pin) { return /^[0-9]{6}$/.test(pin); }
 
         async function postToGoogleSheet(payload) {
             try {
@@ -640,19 +665,12 @@
                     if (typeof payload[key] === 'object' && payload[key] !== null) {
                         formData.append(key, JSON.stringify(payload[key]));
                     } else {
-                        formData.append(key, payload[key]);
-                    }
-                }
-                const res = await fetch(GOOGLE_SHEET_WEBAPP, {
-                    method: 'POST',
-                    body: formData
-                });
+                        formData.append(key, payload[key]);    }   }
+                const res = await fetch(GOOGLE_SHEET_WEBAPP, { method: 'POST', body: formData });
                 return res.ok;
             } catch (err) {
                 console.error('Google Sheet POST error:', err);
-                return false;
-            }
-        }
+                return false;    }    }
 
         async function openRazorpayCheckout(formData) {
             const currentLang = langSelect.value;
@@ -663,49 +681,63 @@
                 currency: "INR",
                 name: translations[currentLang].headerTitle + " - " + translations[currentLang].headerSubtitle,
                 description: translations[currentLang].pujaDetailsContent[formData.pujaKey].title,
-                prefill: { name: formData.name, email: "", contact: formData.whatsapp || "" },
-                notes: { puja: formData.pujaTitle, name: formData.name, contact: formData.contact, address: formData.address, whatsapp: formData.whatsapp || "" },
+                prefill: { name: formData.name, email: formData.email || "", contact: formData.whatsapp ? "+91" + formData.whatsapp : "" },
+                notes: { puja: formData.pujaTitle, name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp },
                 theme: { color: "#c2410c" },
                 handler: async function (response) {
                     showMessage(translations[currentLang].successMsg, "success");
-                    const payload = { status: "success", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: response.razorpay_payment_id || "", razorpay_signature: response.razorpay_signature || "", members: JSON.stringify(formData.members), name: formData.name, contact: formData.contact, address: formData.address, whatsapp: formData.whatsapp || "", timestamp: new Date().toISOString() };
+                    const payload = { status: "success", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: response.razorpay_payment_id || "", razorpay_signature: response.razorpay_signature || "", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
                     const ok = await postToGoogleSheet(payload);
-                    if (!ok) showMessage(translations[currentLang].googleSheetError, "error");
-                },
+                    if (!ok) showMessage(translations[currentLang].googleSheetError, "error");       },
                 modal: {
                     ondismiss: async function () {
                         showMessage(translations[currentLang].paymentFailedMsg, "error");
-                        const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: "user_dismissed_or_failed", members: JSON.stringify(formData.members), name: formData.name, contact: formData.contact, address: formData.address, whatsapp: formData.whatsapp || "", timestamp: new Date().toISOString() };
-                        await postToGoogleSheet(payload);
-                    }
-                }
-            };
+                        const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: "user_dismissed_or_failed", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
+                        await postToGoogleSheet(payload);        }       }       };
             const rzp = new Razorpay(options);
-            rzp.open();
-        }
+            rzp.open();        }
 
         payBtn.addEventListener('click', async () => {
             const currentLang = langSelect.value;
             clearMessage();
             const formData = collectFormData();
-
             if (!formData.pujaKey) { showMessage(translations[currentLang].validationPujaSelect, "error"); return; }
             if (!formData.members || formData.members.length === 0) { showMessage(translations[currentLang].validationMinMembers, "error"); return; }
             if (!formData.name) { showMessage(translations[currentLang].validationFullName, "error"); return; }
-            if (!formData.contact) { showMessage(translations[currentLang].validationContact, "error"); return; }
+            
+            // Validate Phone Number
+            if (!formData.contact) { 
+                showMessage(translations[currentLang].validationContact, "error"); 
+                return; 
+            }
+            if (!isValidIndianMobile(formData.contact)) {
+                showMessage(translations[currentLang].contactNumberError, "error");
+                contactError.textContent = translations[currentLang].contactNumberError;
+                contactError.classList.remove('hidden');
+                return;
+            } else {
+                contactError.classList.add('hidden');
+            }
+
             if (!formData.villTown) { showMessage(translations[currentLang].validationVillTown, "error"); return; }
             if (!formData.landmark) { showMessage(translations[currentLang].validationLandmark, "error"); return; }
-            if (!formData.pinCode) { showMessage(translations[currentLang].validationPinCode, "error"); return; }
+            if (!formData.district) { showMessage(translations[currentLang].validationDistrict, "error"); return; }
+            if (!formData.state) { showMessage(translations[currentLang].validationState, "error"); return; }
+            
+            // Validate Pin Code
+            if (!formData.pinCode) { 
+                showMessage(translations[currentLang].validationPinCode, "error"); 
+                return; 
+            }
             if (!isValidPinCode(formData.pinCode)) {
                 showMessage(translations[currentLang].pinCodeError, "error");
                 pinError.textContent = translations[currentLang].pinCodeError;
                 pinError.classList.remove('hidden');
                 return;
             } else {
-                pinError.classList.add('hidden');
-            }
-            if (!formData.state) { showMessage(translations[currentLang].validationState, "error"); return; }
-
+                pinError.classList.add('hidden');            }
+                
+            // Validate WhatsApp Number
             const whatsappNo = formData.whatsapp;
             if (!whatsappNo) {
                 showMessage(translations[currentLang].whatsappError, "error");
@@ -718,13 +750,11 @@
                 whatsappError.classList.remove('hidden');
                 return;
             } else {
-                whatsappError.classList.add('hidden');
-            }
+                whatsappError.classList.add('hidden');           }
 
             const confirmMsg = translations[currentLang].confirmMsg(
                 translations[currentLang].pujaDetailsContent[formData.pujaKey].title,
-                formData.amountINR
-            );
+                formData.amountINR           );
             if (!confirm(confirmMsg)) return;
 
             try {
@@ -735,14 +765,13 @@
                     payment_id: "",
                     members: JSON.stringify(formData.members),
                     name: formData.name,
-                    contact: formData.contact,
+                    contact: "+91" + formData.contact,
+                    email: formData.email || "N/A",
                     address: formData.address,
-                    whatsapp: formData.whatsapp || "",
-                    timestamp: new Date().toISOString()
-                });
+                    whatsapp: "+91" + formData.whatsapp,
+                    timestamp: new Date().toISOString()               });
             } catch (e) {
-                console.error("Initial save to Google Sheet failed", e);
-            }
+                console.error("Initial save to Google Sheet failed", e);           }
 
             showMessage(translations[currentLang].paymentPopupLoading, "info");
             try {
@@ -750,133 +779,62 @@
             } catch (err) {
                 console.error('Razorpay error:', err);
                 showMessage(translations[currentLang].unknownError, "error");
-                const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: err && err.message ? err.message : "unknown_error", members: JSON.stringify(formData.members), name: formData.name, contact: formData.contact, address: formData.address, whatsapp: formData.whatsapp || "", timestamp: new Date().toISOString() };
-                await postToGoogleSheet(payload);
-            }
-        });
-    
-	const policyData = {
+                const payload = { status: "failed", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: "", razorpay_error: err && err.message ? err.message : "unknown_error", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
+                await postToGoogleSheet(payload);           }        });
 
-		terms: `
-			<h3>Terms & Conditions</h3>
+        const policyData = {
+            terms: `
+                <h3>Terms & Conditions</h3>
+                <p>Welcome to Tara Seva.</p>
+                <p>Tara Seva provides online booking services for religious rituals, pujas, offerings, and related spiritual services conducted at Tarapith, West Bengal, India.</p>
+                <p>By using this website and making payment, you agree to these Terms & Conditions.</p>
+                <p>You are responsible for providing correct personal information, gotra details, contact number and delivery address.</p>
+                <p>Tara Seva reserves the right to refuse or cancel bookings due to incorrect information, fraud, technical issues or circumstances beyond reasonable control.</p>
+                <p>Puja schedules may vary due to temple requirements, festivals, weather conditions or religious considerations.</p>
+                <p>Any disputes shall be subject to the jurisdiction of West Bengal, India.</p>          `,
+            privacy: `
+                <h3>Privacy Policy</h3>
+                <p>Tara Seva respects your privacy.</p>
+                <p>We collect your name, address, phone number, WhatsApp number and puja booking information solely for providing religious services and delivering prasad.</p>
+                <p>Your information is never sold or rented to third parties.</p>
+                <p>Information may be shared only with payment processors, courier partners or authorities when legally required.</p>
+                <p>Payments are securely processed through Razorpay. We do not store card or banking information.</p>
+                <p>For privacy-related concerns contact us at +91 7001531377.</p>          `,
+            refund: `
+                <h3>Refund & Cancellation Policy</h3>
+                <p>Tara Seva provides customized religious services performed specifically on behalf of devotees.</p>
+                <p>Once a puja, ritual, sankalp or offering has been completed, cancellation or refund is not applicable.</p>
+                <p>Prasad and Ashirbad items are devotional and perishable in nature. Therefore cancellation is not possible after processing or dispatch.</p>
+                <p>Refunds are not available due to change of mind or personal reasons.</p>
+                <p>However, if payment is deducted multiple times, or payment succeeds but booking is not received because of a technical issue, the amount will be refunded after verification.</p>
+                <p>Approved refunds will be credited to the original payment method within 5-7 working days.</p>          `,
+            shipping: `
+                <h3>Shipping & Delivery Policy</h3>
+                <p>Tara Seva delivers Prasad and Ashirbad boxes across India.</p>
+                <p>After completion of the puja, packages are normally dispatched within 2-3 business days.</p>
+                <p>Delivery is carried out through courier partners.</p>
+                <p>Most deliveries are completed within 5-7 working days after dispatch depending on destination and courier service availability.</p>
+                <p>Delivery delays may occur during festivals, public holidays, weather disruptions or unforeseen circumstances.</p>
+                <p>Please provide a complete and accurate shipping address and contact number.</p>       `   };
 
-			<p>Welcome to Tara Seva.</p>
-
-			<p>Tara Seva provides online booking services for religious rituals, pujas, offerings, and related spiritual services conducted at Tarapith, West Bengal, India.</p>
-
-			<p>By using this website and making payment, you agree to these Terms & Conditions.</p>
-
-			<p>You are responsible for providing correct personal information, gotra details, contact number and delivery address.</p>
-
-			<p>Tara Seva reserves the right to refuse or cancel bookings due to incorrect information, fraud, technical issues or circumstances beyond reasonable control.</p>
-
-			<p>Puja schedules may vary due to temple requirements, festivals, weather conditions or religious considerations.</p>
-
-			<p>Any disputes shall be subject to the jurisdiction of West Bengal, India.</p>
-			`,
-
-		privacy: `
-			<h3>Privacy Policy</h3>
-
-			<p>Tara Seva respects your privacy.</p>
-
-			<p>We collect your name, address, phone number, WhatsApp number and puja booking information solely for providing religious services and delivering prasad.</p>
-
-			<p>Your information is never sold or rented to third parties.</p>
-
-			<p>Information may be shared only with payment processors, courier partners or authorities when legally required.</p>
-
-			<p>Payments are securely processed through Razorpay. We do not store card or banking information.</p>
-
-			<p>For privacy-related concerns contact us at +91 7001531377.</p>
-			`,
-
-		refund: `
-			<h3>Refund & Cancellation Policy</h3>
-
-			<p>Tara Seva provides customized religious services performed specifically on behalf of devotees.</p>
-
-			<p>Once a puja, ritual, sankalp or offering has been completed, cancellation or refund is not applicable.</p>
-
-			<p>Prasad and Ashirbad items are devotional and perishable in nature. Therefore cancellation is not possible after processing or dispatch.</p>
-
-			<p>Refunds are not available due to change of mind or personal reasons.</p>
-
-			<p>However, if payment is deducted multiple times, or payment succeeds but booking is not received because of a technical issue, the amount will be refunded after verification.</p>
-
-			<p>Approved refunds will be credited to the original payment method within 5-7 working days.</p>
-			`,
-
-		shipping: `
-			<h3>Shipping & Delivery Policy</h3>
-
-			<p>Tara Seva delivers Prasad and Ashirbad boxes across India.</p>
-
-			<p>After completion of the puja, packages are normally dispatched within 2-3 business days.</p>
-
-			<p>Delivery is carried out through courier partners.</p>
-
-			<p>Most deliveries are completed within 5-7 working days after dispatch depending on destination and courier service availability.</p>
-
-			<p>Delivery delays may occur during festivals, public holidays, weather disruptions or unforeseen circumstances.</p>
-
-			<p>Please provide a complete and accurate shipping address and contact number.</p>
-			`
-	};
-
-		function openPolicy(type){
-
-		document.getElementById("policyTitle").innerText={
-		terms:"Terms & Conditions",
-		privacy:"Privacy Policy",
-		refund:"Refund & Cancellation Policy",
-		shipping:"Shipping & Delivery Policy"
-		}[type];
-
-		document.getElementById("policyContent").innerHTML=
-		policyData[type];
-
-		document.getElementById("policyModal")
-		.classList.remove("hidden");
-		}
-
-		function closePolicy(){
-		document.getElementById("policyModal")
-		.classList.add("hidden");
-		}
-
-		document.addEventListener("click",function(e){
-
-		if(e.target.id==="policyModal"){
-		closePolicy();
-		}
-
-		});
-	
-	</script>
-
-	<!-- POLICY MODAL -->
-
-	<div id="policyModal"
-			class="fixed inset-0 bg-black/60 hidden z-50 flex items-center justify-center p-4">
-
-		<div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-
-			<div class="flex justify-between items-center p-5 border-b">
-				<h2 id="policyTitle" class="text-xl font-bold text-slate-800"></h2>
-
-				<button onclick="closePolicy()"
-						class="text-slate-500 hover:text-red-500 text-2xl">
-					&times;
-				</button>
-			</div>
-
-			<div id="policyContent"
-				class="p-6 overflow-y-auto max-h-[75vh] text-sm text-slate-700 leading-7">
-			</div>
-
-		</div>
-	</div>
-
+        function openPolicy(type){
+            document.getElementById("policyTitle").innerText={
+                terms:"Terms & Conditions",
+                privacy:"Privacy Policy",
+                refund:"Refund & Cancellation Policy",
+                shipping:"Shipping & Delivery Policy"
+            }[type];
+            document.getElementById("policyContent").innerHTML=policyData[type];
+            document.getElementById("policyModal").classList.remove("hidden");       
+        }
+        function closePolicy(){
+            document.getElementById("policyModal").classList.add("hidden");       
+        }
+        document.addEventListener("click",function(e){
+            if(e.target.id==="policyModal"){
+                closePolicy();      
+            }       
+        }); 
+    </script>
 </body>
 </html>
