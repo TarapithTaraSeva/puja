@@ -274,7 +274,7 @@
                 successMsg: "আপনার পূজো সফলভাবে পাঠানো হয়েছে। খুব শিগগিরই আমরা আপনার সাথে যোগাযোগ করবো এবং পূজো সম্পন্ন হওয়ার পর আপনার প্রসাদ ও আশীর্বাদ বক্স আপনার দেওয়া ঠিকানায় কুরিয়ার করা হবে।",
                 paymentFailedMsg: "পেমেন্ট বাতিল বা ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
                 paymentPopupLoading: "Razorpay পেমেন্ট পপ-আপ লোড হচ্ছে... অনুগ্রহ করে পপ-আপটি বন্ধ করবেন না।",
-                googleSheetError: "পেমেন্ট সফল হয়েছে, তবে রেকর্ড গুগল শীটে সংরক্ষিত হয়নি। অ্যাডমিনকে জানান।",
+                googleSheetError: "পেমেন্ট বিচ্যুত হয়েছে, যান্ত্রিক গলোযোগের জন্য অ্যাডমিন পোর্টালে আপনার পেমেন্টটি ঠিকঠাক পৌঁছায়নি । যদি আপনার ব্যাঙ্ক থেকে টাকা না কেটেছে তাহলে পুনরায় চেষ্টা করুন অথবা যদি আপনার ব্যাঙ্ক থেকে টাকা কেটে নিয়েছে তাহলে আপনি এটার স্ক্রিনশট ও পেমেন্টের স্ক্রিনশট নিয়ে ও আপনার পার্সোনাল ডিটেলস ও এড্রেস লিখে 7001531377 এই নম্বরে হোয়াটস্যাপ এডমিনকে জানান। আপনার চিন্তার কোনো কারণ নেই অ্যাডমিন খুব জলদি সমাধান করে দেবে।",
                 unknownError: "পেমেন্টে ত্রুটি হয়েছে। পরে আবার চেষ্টা করুন।",
                 validationPujaSelect: "দয়া করে একটি পুজো নির্বাচন করুন।",
                 validationMinMembers: "দয়া করে অন্তত একজনের নাম ও গোত্র লিখুন।",
@@ -356,7 +356,7 @@
                 successMsg: "आपकी  पूजा सफलतापूर्वक भेजी गई है। हम जल्द ही आपसे संपर्क करेंगे और पूजा पूरी होने के बाद आपका प्रसाद और आशीर्वाद बॉक्स आपके दिए गए पते पर कूरियर किया जाएगा।",
                 paymentFailedMsg: "भुगतान रद्द या असफल हो गया। कृपया पुनः प्रयास करें।",
                 paymentPopupLoading: "रेजरपे पेमेंट पॉप-अप लोड हो रहा है... कृपया पॉप-अप को बंद न करें।",
-                googleSheetError: "भुगतान सफल रहा, लेकिन रिकॉर्ड गूगल शीट में सहेजा नहीं गया। कृपया एडमिन को सूचित करें।",
+                googleSheetError: "तकनीकी खराबी के कारण पेमेंट ठीक से प्रोसेस नहीं हो पाया और एडमिन पोर्टल तक नहीं पहुँचा। अगर आपके बैंक अकाउंट से पैसे नहीं कटे हैं, तो कृपया दोबारा कोशिश करें। हालाँकि, अगर पैसे कट गए हैं, तो कृपया ट्रांज़ैक्शन का स्क्रीनशॉट लें, अपनी पर्सनल जानकारी और पता उसमें शामिल करें, और यह जानकारी WhatsApp पर 7001531377 नंबर पर एडमिन को भेज दें। चिंता करने की कोई ज़रूरत नहीं है; एडमिन जल्द ही इस समस्या को हल कर देंगे।",
                 unknownError: "भुगतान में त्रुटि हुई। कृपया बाद में पुनः प्रयास करें।",
                 validationPujaSelect: "कृपया एक पूजा का चयन करें।",
                 validationMinMembers: "कृपया कम से कम एक व्यक्ति का नाम और गोत्र लिखें।",
@@ -437,7 +437,7 @@
                 successMsg: "Your Puja has been successfully submitted. We will contact you soon and after the puja is completed, your Prasad and Aashirwad box will be couriered to your provided address.",
                 paymentFailedMsg: "Payment cancelled or failed. Please try again.",
                 paymentPopupLoading: "Razorpay payment pop-up is loading... Please do not close the pop-up.",
-                googleSheetError: "Payment successful, but the record was not saved in Google Sheet. Please inform the admin.",
+                googleSheetError: "The payment failed to process correctly due to a technical glitch and did not reach the admin portal. If the amount has not been deducted from your bank account, then please try again. However, if the money has been deducted, please take a screenshot of the transaction, include your personal details and address, and send this information to the admin via WhatsApp at 7001531377. There is no need to worry; the admin will resolve the issue promptly.",
                 unknownError: "Payment failed due to an error. Please try again later.",
                 validationPujaSelect: "Please select a puja.",
                 validationMinMembers: "Please enter at least one name and gotra.",
@@ -474,7 +474,7 @@
             }
         };
 
-        const RAZORPAY_KEY = "rzp_test_T5zDI77Mkk8u2d";
+        const RAZORPAY_KEY = "rzp_live_TXtyAadxkHV8X3"; 
         const GOOGLE_SHEET_WEBAPP = "https://script.google.com/macros/s/AKfycby0kU6jqshwpoSr9Cl3esuP8KHybYREAS2fIm7TvowD6sk0YSnhA7wXOMEa09jypHweyQ/exec";
         const pujaPrices = { puja1: 751, puja2: 1101, puja3: 1601, puja4: 1 };
 
