@@ -738,8 +738,8 @@
                         formData.append(key, JSON.stringify(payload[key]));
                     } else {
                         formData.append(key, payload[key]);    }   }
-                const res = await fetch(GOOGLE_SHEET_WEBAPP, { method: 'POST', body: formData });
-                return res.ok;
+                await fetch(GOOGLE_SHEET_WEBAPP, { method: 'POST', body: formData, mode: 'no-cors' });
+                return true;
             } catch (err) {
                 console.error('Google Sheet POST error:', err);
                 return false;    }    }
@@ -759,8 +759,8 @@
                 handler: async function (response) {
                     showMessage(translations[currentLang].successMsg, "success");
                     const payload = { status: "success", puja: formData.pujaTitle, amount: formData.amountINR, payment_id: response.razorpay_payment_id || "", razorpay_signature: response.razorpay_signature || "", members: JSON.stringify(formData.members), name: formData.name, contact: "+91" + formData.contact, email: formData.email || "N/A", address: formData.address, whatsapp: "+91" + formData.whatsapp, timestamp: new Date().toISOString() };
-                    const ok = await postToGoogleSheet(payload);
-                    if (!ok) showCustomAlert(translations[currentLang].googleSheetError);       },
+                    await postToGoogleSheet(payload); },
+                   
                 modal: {
                     ondismiss: async function () {
                         showCustomAlert(translations[currentLang].paymentFailedMsg);
