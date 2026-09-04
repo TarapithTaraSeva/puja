@@ -105,22 +105,22 @@
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="emailField" data-lang-key="emailLabel" data-is-mandatory="false">ইমেইল আইডি</label>
                     <input type="email" id="emailField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="emailPlaceholder" placeholder="আপনার ইমেইল আইডি ">   </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="villTownField" data-lang-key="villTownLabel" data-is-mandatory="true">গ্রাম/শহর</label>
-                    <input type="text" id="villTownField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="villTownPlaceholder" placeholder="গ্রাম/শহর" required>   </div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="villTownField" data-lang-key="villTownLabel" data-is-mandatory="false">গ্রাম/শহর</label>
+                    <input type="text" id="villTownField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="villTownPlaceholder" placeholder="গ্রাম/শহর" >   </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1" for="roadLaneField" data-lang-key="roadLaneLabel" data-is-mandatory="false">রাস্তা/লেন</label>
                     <input type="text" id="roadLaneField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="roadLanePlaceholder" placeholder="রাস্তা/লেন (ঐচ্ছিক)">   </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="landmarkField" data-lang-key="landmarkLabel" data-is-mandatory="true">ল্যান্ডমার্ক</label>
-                    <input type="text" id="landmarkField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="landmarkPlaceholder" placeholder="কাছাকাছি বিখ্যাত স্থান/ল্যান্ডমার্ক" required>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="landmarkField" data-lang-key="landmarkLabel" data-is-mandatory="false">ল্যান্ডমার্ক</label>
+                    <input type="text" id="landmarkField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="landmarkPlaceholder" placeholder="কাছাকাছি বিখ্যাত স্থান/ল্যান্ডমার্ক" >
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="districtField" data-lang-key="districtLabel" data-is-mandatory="true">জেলা</label>
-                    <input type="text" id="districtField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="districtPlaceholder" placeholder="আপনার জেলার নাম লিখুন" required>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="districtField" data-lang-key="districtLabel" data-is-mandatory="false">জেলা</label>
+                    <input type="text" id="districtField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="districtPlaceholder" placeholder="আপনার জেলার নাম লিখুন" >
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="stateSelect" data-lang-key="stateLabel" data-is-mandatory="true">রাজ্য</label>
-                    <select id="stateSelect" class="w-full border rounded-md p-3 input-focus" required>
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="stateSelect" data-lang-key="stateLabel" data-is-mandatory="false">রাজ্য</label>
+                    <select id="stateSelect" class="w-full border rounded-md p-3 input-focus" >
                         <option value="" data-lang-key="selectStatePlaceholder">-- রাজ্য নির্বাচন করুন --</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -161,8 +161,8 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1" for="pinCodeField" data-lang-key="pinCodeLabel" data-is-mandatory="true">পিন কোড</label>
-                    <input type="text" id="pinCodeField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="pinCodePlaceholder" placeholder="ছয় অঙ্কের পিন কোড" required pattern="[0-9]{6}" maxlength="6">
+                    <label class="block text-sm font-medium text-slate-700 mb-1" for="pinCodeField" data-lang-key="pinCodeLabel" data-is-mandatory="false">পিন কোড</label>
+                    <input type="text" id="pinCodeField" class="w-full border rounded-md p-3 input-focus" data-lang-placeholder-key="pinCodePlaceholder" placeholder="ছয় অঙ্কের পিন কোড"  pattern="[0-9]{6}" maxlength="6">
                 </div>
             </div>
             <div class="mt-3">
@@ -787,23 +787,8 @@
             if (!isValidIndianMobile(formData.contact)) {
                 showCustomAlert(translations[currentLang].contactNumberError);
                 return;
-            }
-
-            if (!formData.villTown) { showCustomAlert(translations[currentLang].validationVillTown); return; }
-            if (!formData.landmark) { showCustomAlert(translations[currentLang].validationLandmark); return; }
-            if (!formData.district) { showCustomAlert(translations[currentLang].validationDistrict); return; }
-            if (!formData.state) { showCustomAlert(translations[currentLang].validationState); return; }
-            
-            // Validate Pin Code
-            if (!formData.pinCode) { 
-                showCustomAlert(translations[currentLang].validationPinCode); 
-                return; 
-            }
-            if (!isValidPinCode(formData.pinCode)) {
-                showCustomAlert(translations[currentLang].pinCodeError);
-                return;
-            }
-                
+            }       
+                                         
             // Validate WhatsApp Number
             const whatsappNo = formData.whatsapp;
             if (!whatsappNo) {
