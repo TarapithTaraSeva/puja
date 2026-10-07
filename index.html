@@ -60,8 +60,13 @@
                     <option value="en">English</option>    </select>   </div>     </header>
         <section class="bg-white rounded-2xl shadow p-5 mb-4">
             <p class="text-sm text-slate-600" data-lang-key="welcomeMessage">
-                স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি) যদি তারাপীঠ মন্দিরে আপনার পূর্ব পরিচিত কোনো পুরোহিত থাকে তাহলে মন্দিরের প্রচলিত নিয়ম অনুসারে তার সঙ্গে যোগাযোগ করুন । এবং আমাদের মাধ্যমে পুজো দিতে ইচ্ছুক ভক্তগণ নিচের থেকে পুজো নির্বাচন করুন ।  </p>
-        </section>
+						স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি) যদি তারাপীঠ মন্দিরে আপনার পূর্ব পরিচিত কোনো পুরোহিত থাকে তাহলে মন্দিরের প্রচলিত নিয়ম অনুসারে তার সঙ্গে যোগাযোগ করুন । এবং আমাদের মাধ্যমে পুজো দিতে ইচ্ছুক ভক্তগণ নিচের থেকে পুজো নির্বাচন করুন ।  </p>
+						<!-- 2. WhatsApp কনফার্মেশন লাইন -->
+			<div style="background:#e8f5e9; border:1px solid #c8e6c9; padding:10px 12px; border-radius:8px; font-size:14px; margin-bottom:18px; display:flex; align-items:center; gap:6px;">
+				<span>✅</span>
+				<span id="whatsapp-confirm-text">বুকিং সম্পন্ন হলেই <b>WhatsApp এ কনফার্মেশন</b> চলে যাবে</span>
+			</div>		
+		</section>
         <section class="bg-white rounded-2xl shadow p-5 mb-4">
             <label class="block text-sm font-medium text-slate-700 mb-2" data-lang-key="pujaSelectLabel"> পুজো নির্বাচন করুন:</label>
             <select id="pujaSelect" class="w-full border rounded-md p-3 input-focus" aria-label="পুজো নির্বাচন">
@@ -229,7 +234,8 @@
                 headerTitle: "তাঁরা সেবা",
                 headerSubtitle: " পুজো           -      Call / Wapp- 7001531377",
                 welcomeMessage: "স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি) যদি তারাপীঠ মন্দিরে আপনার পূর্ব পরিচিত কোনো পুরোহিত থাকে তাহলে মন্দিরের প্রচলিত নিয়ম অনুসারে তার সঙ্গে যোগাযোগ করুন । এবং আমাদের মাধ্যমে পুজো দিতে ইচ্ছুক ভক্তগণ নিচের থেকে পুজো নির্বাচন করুন ।",
-                pujaSelectLabel: "পুজো নির্বাচন করুন :",
+                whatsapp_confirmation: "বুকিং সম্পন্ন হলেই <b>WhatsApp এ কনফার্মেশন</b> চলে যাবে",
+				pujaSelectLabel: "পুজো নির্বাচন করুন :",
                 selectPujaPlaceholder: "--  নির্বাচন করতে এখানে স্পর্শ করুন --",
                 puja1Option: "স্পেশাল অঞ্জলী ও যজ্ঞাহুতি পূজা — ₹ 551/-",
                 puja2Option: "স্পেশাল সিঙ্গার অঞ্জলী ও যজ্ঞহুতি পূজা — ₹ 751/-",
@@ -311,7 +317,8 @@
                 headerTitle: "तारा सेवा",
                 headerSubtitle: " पूजा   - Call / Wapp- 7001531377",
                 welcomeMessage: "स्वागत है! कृपया नीचे दिए गए विकल्पों में से अपनी पसंद की पूजा चुनें। अगले चरण में, आपको 1 से 5 लोगों के नाम और *गोत्र* (वंश) की जानकारी देने और पेमेंट पूरा करने का विकल्प मिलेगा; इसके बाद हम कूरियर के ज़रिए आपके घर पर *प्रसाद* और आशीर्वाद बॉक्स पहुंचा देंगे (मुफ़्त डिलीवरी)। अगर आप तारापीठ मंदिर के किसी पुजारी को पहले से जानते हैं, तो कृपया मंदिर की स्थापित परंपराओं के अनुसार उनसे सीधे संपर्क करें। जो भक्त हमारे माध्यम से पूजा करवाना चाहते हैं, वे नीचे दिए गए विकल्पों में से पूजा चुन सकते हैं।",
-                pujaSelectLabel: " पूजा चुनें:",
+                whatsapp_confirmation: "बुकिंग पूरी होते ही <b>WhatsApp पर कन्फर्मेशन</b> भेजा जाएगा",
+				pujaSelectLabel: " पूजा चुनें:",
                 selectPujaPlaceholder: "-- पूजा का चयन करने के लिए यहां टैप करें --",
                 puja1Option: "स्पेशल अंजलि और यज्ञाहुति पूजा — ₹ 551/-",
                 puja2Option: "स्पेशल शृंगार अंजलि और यज्ञाहुति पूजा — ₹ 751/-",
@@ -392,7 +399,8 @@
                 headerTitle: "Tara Seva",
                 headerSubtitle: "For Puja - Call / Wapp- 7001531377",
                 welcomeMessage: "Welcome! Select your preferred puja below. In the next step, you will have the option to provide the names and gotras of 1-5 individuals, followed by payment and get Prasad and Aashirwad box at your doorstep (Free Delivery) If you are already acquainted with a priest at the Tarapith Temple, please contact him in accordance with the temple's established customs. Devotees wishing to offer puja through us may select their preferred puja from the options below..",
-                pujaSelectLabel: "Select Puja:",
+                whatsapp_confirmation: "You will receive a <b>WhatsApp confirmation</b> once booking is complete",
+				pujaSelectLabel: "Select Puja:",
                 selectPujaPlaceholder: "-- Tap here To Select Puja --",
                 puja1Option: "Special Anjali & Yagyahuti Puja — ₹ 551/-",
                 puja2Option: "Special Singer Anjali & Yagyahuti Puja — ₹ 751/-",
@@ -577,6 +585,9 @@
             const firstStateOption = stateSelect.options[0];
             if (firstStateOption) {
                 firstStateOption.textContent = translations[lang].selectStatePlaceholder;
+				    const whatsappEl = document.getElementById('whatsapp-confirm-text');
+					if (whatsappEl && translations[lang].whatsapp_confirmation) {
+					whatsappEl.innerHTML = translations[lang].whatsapp_confirmation; }
             }
 
             const currentPuja = pujaSelect.value;
