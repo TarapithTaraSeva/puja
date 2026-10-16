@@ -42,7 +42,66 @@
             color:#92400e;
             cursor:pointer;     }
         .policy-link:hover{
-            text-decoration:underline; } </style>
+            text-decoration:underline; } 
+			
+			.trust-strip{
+		  display:flex;
+		  flex-wrap:wrap;
+		  justify-content:center;
+		  gap:10px;
+		  margin:14px 10px;
+		}
+		.trust-item{
+		  display:flex;
+		  align-items:center;
+		  gap:5px;
+		  background:#fff;
+		  border:1px solid #e0e0e0;
+		  border-radius:20px;
+		  padding:6px 12px;
+		  font-size:13px;
+		  font-weight:500;
+		  color:#444;
+		  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+		  white-space:nowrap;
+		}
+		/* মোবাইলে 2টো করে দেখাবে */
+		@media (max-width:640px){
+		  .trust-strip{
+			display:grid;
+			grid-template-columns:1fr 1fr;
+		  }
+		  .trust-item{
+			justify-content:center;
+			font-size:12px;
+			padding:7px 8px;
+		  }
+		}
+					
+					
+					.feature-strip{
+		  display:grid;
+		  grid-template-columns:repeat(4,1fr);
+		  gap:10px;
+		  margin:18px 0;
+		}
+		.feature-card{
+		  background:#fff;
+		  border:1px solid #f3e8d3;
+		  border-radius:12px;
+		  padding:12px 8px;
+		  text-align:center;
+		  box-shadow:0 2px 6px rgba(0,0,0,0.04);
+		}
+		.feature-icon{ font-size:22px; margin-bottom:4px; }
+		.feature-title{ font-size:12px; font-weight:700; color:#1f2937; line-height:1.3; }
+		.feature-sub{ font-size:11px; color:#6b7280; margin-top:2px; line-height:1.2; }
+		@media (max-width:640px){
+		  .feature-strip{ grid-template-columns:1fr 1fr; }
+		}
+			
+			
+			</style>
 </head>
 <body class="bg-gradient-to-b from-amber-50 to-white min-h-screen text-slate-800">
     <div class="max-w-3xl mx-auto p-6">
@@ -65,7 +124,26 @@
 			<div style="background:#e8f5e9; border:1px solid #c8e6c9; padding:10px 12px; border-radius:8px; font-size:14px; margin-bottom:18px; display:flex; align-items:center; gap:6px;">
 				<span>✅</span>
 				<span id="whatsapp-confirm-text">বুকিং সম্পন্ন হলেই <b>WhatsApp এ কনফার্মেশন</b> চলে যাবে</span>
-			</div>		
+			</div>
+				<!-- Trust Badges Strip -->
+		<div class="trust-strip">
+			<div class="trust-item">
+				<span>😊</span>
+				<span data-lang-key="badge_happy">3k+ খুশি ভক্ত</span>
+			</div>
+			<div class="trust-item">
+				<span>🔒</span>
+				<span data-lang-key="badge_secure">100% সুরক্ষিত পেমেন্ট</span>
+			</div>
+			<div class="trust-item">
+				<span>⭐</span>
+				<span data-lang-key="badge_rating">4.9/5 গড় রেটিং</span>
+			</div>
+			<div class="trust-item">
+				<span>🙏</span>
+				<span data-lang-key="badge_puja">3k+ পূজা সম্পন্ন</span>
+			</div>
+		</div>
 		</section>
         <section class="bg-white rounded-2xl shadow p-5 mb-4">
             <label class="block text-sm font-medium text-slate-700 mb-2" data-lang-key="pujaSelectLabel"> পুজো নির্বাচন করুন:</label>
@@ -180,9 +258,39 @@
                 <p class="text-sm text-slate-700 mb-3" data-lang-key="paymentIntro">সমস্ত ফাঁকা জায়গা গুলি পূরণ করার পরে নিচে পেমেন্ট করে পুজো পাঠান।</p>
                 <button id="payBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-md" data-lang-key="payButton">
                     পেমেন্ট করুন ও পুজো পাঠানোর প্রক্রিয়া সম্পূর্ণ করুন     </button>
-                <p class="text-xs text-slate-500 mt-2">Secure & Verified Payment Gateway - Razorpay</p>   </div>    </div>
+               				
+				</div>
+
+				</div>
         <div id="messageArea" class="mb-4"></div>
         <footer class="text-center text-xs text-slate-500 mt-8 border-t pt-5">
+		
+		
+								<!-- Puja Features - Payment এর নিচে -->
+		<div class="feature-strip">
+		  <div class="feature-card">
+			<div class="feature-icon">📸</div>
+			<div class="feature-title" data-lang-key="feature_proof_title">48 ঘণ্টার মধ্যে পূজা প্রমাণ</div>
+			<div class="feature-sub" data-lang-key="feature_proof_sub">WhatsApp এ ছবি পাবেন</div>
+		  </div>
+		  <div class="feature-card">
+			<div class="feature-icon">🎓</div>
+			<div class="feature-title" data-lang-key="feature_priest_title">যাচাইকৃত ও অভিজ্ঞ পুরোহিত</div>
+			<div class="feature-sub" data-lang-key="feature_priest_sub">বংশ পরম্পরা ও আগম প্রশিক্ষিত</div>
+		  </div>
+		  <div class="feature-card">
+			<div class="feature-icon">📜</div>
+			<div class="feature-title" data-lang-key="feature_vedic_title">100% বৈদিক রীতি</div>
+			<div class="feature-sub" data-lang-key="feature_vedic_sub">শাস্ত্র মেনে সম্পূর্ণ সংকল্প</div>
+		  </div>
+		  <div class="feature-card">
+			<div class="feature-icon">🛕</div>
+			<div class="feature-title" data-lang-key="feature_temple_title">পবিত্র তারাপীঠ মন্দিরে</div>
+			<div class="feature-sub" data-lang-key="feature_temple_sub">মা তাঁরা মন্দিরেই পূজা</div>
+		  </div>
+		</div>
+		
+		
             <div class="mb-3">
                 <span data-lang-key="footerText">
                     © 2025 Tara Seva - Tarapith, West Bengal, India  </span>   </div>
@@ -235,6 +343,10 @@
                 headerSubtitle: " পুজো           -      Call / Wapp- 7001531377",
                 welcomeMessage: "স্বাগতম! নিচ থেকে আপনার পছন্দের পুজো নির্বাচন করুন। পরবর্তী ধাপে আপনার ১-৫ জন ব্যক্তির নাম ও গোত্র দেওয়ার অপশন আসবে এবং তারপর পেমেন্ট করতে পারবেন এবং আমরা আপনার বাড়িতে প্রসাদ ও আশীর্বাদ বক্স কুরিয়ার মাধ্যমে ডেলিভারি করে দেব (ফ্রি ডেলিভারি) যদি তারাপীঠ মন্দিরে আপনার পূর্ব পরিচিত কোনো পুরোহিত থাকে তাহলে মন্দিরের প্রচলিত নিয়ম অনুসারে তার সঙ্গে যোগাযোগ করুন । এবং আমাদের মাধ্যমে পুজো দিতে ইচ্ছুক ভক্তগণ নিচের থেকে পুজো নির্বাচন করুন ।",
                 whatsapp_confirmation: "বুকিং সম্পন্ন হলেই <b>WhatsApp এ কনফার্মেশন</b> চলে যাবে",
+				badge_happy: "3k+ খুশি ভক্ত",
+			  badge_secure: "100% সুরক্ষিত পেমেন্ট",
+			  badge_rating: "4.9/5 গড় রেটিং",
+			  badge_puja: "3k+ পূজা সম্পন্ন",
 				pujaSelectLabel: "পুজো নির্বাচন করুন :",
                 selectPujaPlaceholder: "--  নির্বাচন করতে এখানে স্পর্শ করুন --",
                 puja1Option: "স্পেশাল অঞ্জলী ও যজ্ঞাহুতি পূজা — ₹ 551/-",
@@ -274,6 +386,14 @@
                 contactNumberError: "দয়া করে একটি সঠিক ১০-সংখ্যার ফোন নম্বর দিন।",
                 paymentIntro: "সমস্ত ফাঁকা জায়গা গুলি পূরণ করার পরে নিচে পেমেন্ট করে পুজো পাঠান।",
                 payButton: "পেমেন্ট করুন ও পুজো পাঠানোর প্রক্রিয়া সম্পূর্ণ করুন",
+				feature_proof_title: "48 ঘণ্টার মধ্যে পূজা প্রমাণ",
+			feature_proof_sub: "WhatsApp এ ছবি পাবেন",
+			feature_priest_title: "যাচাইকৃত ও অভিজ্ঞ পুরোহিত",
+			feature_priest_sub: "বংশ পরম্পরা ও আগম প্রশিক্ষিত",
+			feature_vedic_title: "100% বৈদিক রীতি",
+			feature_vedic_sub: "শাস্ত্র মেনে সম্পূর্ণ সংকল্প",
+			feature_temple_title: "পবিত্র তারাপীঠ মন্দিরে",
+			feature_temple_sub: "মা তাঁরা মন্দিরেই পূজা",
                 confirmMsg: (pujaTitle, amount) => `আপনি পুজোর জন্য '${pujaTitle}' (₹${amount}) পেমেন্ট করতে যাচ্ছেন। ?`,
                 successMsg: "আপনার পূজো সফলভাবে পাঠানো হয়েছে। খুব শিগগিরই আমরা আপনার সাথে যোগাযোগ করবো এবং পূজো সম্পন্ন হওয়ার পর আপনার প্রসাদ ও আশীর্বাদ বক্স আপনার দেওয়া ঠিকানায় কুরিয়ার করা হবে।",
                 paymentFailedMsg: "পেমেন্ট বাতিল বা ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
@@ -318,6 +438,10 @@
                 headerSubtitle: " पूजा   - Call / Wapp- 7001531377",
                 welcomeMessage: "स्वागत है! कृपया नीचे दिए गए विकल्पों में से अपनी पसंद की पूजा चुनें। अगले चरण में, आपको 1 से 5 लोगों के नाम और *गोत्र* (वंश) की जानकारी देने और पेमेंट पूरा करने का विकल्प मिलेगा; इसके बाद हम कूरियर के ज़रिए आपके घर पर *प्रसाद* और आशीर्वाद बॉक्स पहुंचा देंगे (मुफ़्त डिलीवरी)। अगर आप तारापीठ मंदिर के किसी पुजारी को पहले से जानते हैं, तो कृपया मंदिर की स्थापित परंपराओं के अनुसार उनसे सीधे संपर्क करें। जो भक्त हमारे माध्यम से पूजा करवाना चाहते हैं, वे नीचे दिए गए विकल्पों में से पूजा चुन सकते हैं।",
                 whatsapp_confirmation: "बुकिंग पूरी होते ही <b>WhatsApp पर कन्फर्मेशन</b> भेजा जाएगा",
+				 badge_happy: "3k+ खुश भक्त",
+			  badge_secure: "100% सुरक्षित पेमेंट",
+			  badge_rating: "4.9/5 औसत रेटिंग",
+			  badge_puja: "3k+ पूजा संपन्न",
 				pujaSelectLabel: " पूजा चुनें:",
                 selectPujaPlaceholder: "-- पूजा का चयन करने के लिए यहां टैप करें --",
                 puja1Option: "स्पेशल अंजलि और यज्ञाहुति पूजा — ₹ 551/-",
@@ -357,6 +481,14 @@
                 contactNumberError: "कृपया सही 10-अंकीय फ़ोन नंबर डालें।",
                 paymentIntro: "सभी खाली जगहें भरने के बाद, नीचे भुगतान करके पूजा भेजें।",
                 payButton: "भुगतान करें और पूजा भेजने की प्रक्रिया पूरी करें",
+				feature_proof_title: "48 घंटे में पूजा प्रमाण",
+			feature_proof_sub: "WhatsApp पर फोटो मिलेगी",
+			feature_priest_title: "सत्यापित और अनुभवी पुरोहित",
+			feature_priest_sub: "वंश परंपरा और आगम प्रशिक्षित",
+			feature_vedic_title: "100% वैदिक विधि",
+			feature_vedic_sub: "शास्त्र अनुसार पूर्ण संकल्प",
+			feature_temple_title: "पवित्र तारापीठ मंदिर में",
+			feature_temple_sub: "माँ तारा मंदिर में ही पूजा",
                 confirmMsg: (pujaTitle, amount) => `आप पूजा के लिए '${pujaTitle}' (₹${amount}) का भुगतान करने जा रहे हैं। `,
                 successMsg: "आपकी  पूजा सफलतापूर्वक भेजी गई है। हम जल्द ही आपसे संपर्क करेंगे और पूजा पूरी होने के बाद आपका प्रसाद और आशीर्वाद बॉक्स आपके दिए गए पते पर कूरियर किया जाएगा।",
                 paymentFailedMsg: "भुगतान रद्द या असफल हो गया। कृपया पुनः प्रयास करें।",
@@ -400,6 +532,10 @@
                 headerSubtitle: "For Puja - Call / Wapp- 7001531377",
                 welcomeMessage: "Welcome! Select your preferred puja below. In the next step, you will have the option to provide the names and gotras of 1-5 individuals, followed by payment and get Prasad and Aashirwad box at your doorstep (Free Delivery) If you are already acquainted with a priest at the Tarapith Temple, please contact him in accordance with the temple's established customs. Devotees wishing to offer puja through us may select their preferred puja from the options below..",
                 whatsapp_confirmation: "You will receive a <b>WhatsApp confirmation</b> once booking is complete",
+				 badge_happy: "3k+ Happy Devotees",
+			  badge_secure: "100% Secure Payment",
+			  badge_rating: "4.9/5 Rating",
+			  badge_puja: "3k+ Puja Completed",
 				pujaSelectLabel: "Select Puja:",
                 selectPujaPlaceholder: "-- Tap here To Select Puja --",
                 puja1Option: "Special Anjali & Yagyahuti Puja — ₹ 551/-",
@@ -439,6 +575,14 @@
                 contactNumberError: "Please enter a valid 10-digit phone number.",
                 paymentIntro: "After filling all the empty fields, send the puja by making the payment below.",
                 payButton: "Make Payment & Complete Puja Submission Process",
+				feature_proof_title: "Puja Proof in 48 Hours",
+			feature_proof_sub: "Get photos on WhatsApp",
+			feature_priest_title: "Verified & Experienced Priests",
+			feature_priest_sub: "Lineage & Agama Trained",
+			feature_vedic_title: "100% Vedic Rituals",
+			feature_vedic_sub: "Complete Sankalpa as per Shastra",
+			feature_temple_title: "At Sacred Tarapith Temple",
+			feature_temple_sub: "Puja at Maa Tara Temple itself",
                 confirmMsg: (pujaTitle, amount) => `You are about to make a payment of ₹${amount} for '${pujaTitle}' Puja.`,
                 successMsg: "Your Puja has been successfully submitted. We will contact you soon and after the puja is completed, your Prasad and Aashirwad box will be couriered to your provided address.",
                 paymentFailedMsg: "Payment cancelled or failed. Please try again.",
